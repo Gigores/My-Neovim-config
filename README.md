@@ -9,7 +9,7 @@
   - *Task runner integration*: Just
 - Calming Everforest theme
 
-<img src="https://github.com/Gigores/My-Neovim-config/blob/master/screenshots/screenshot1.png" width="60%" alt="Screenshot">
+<img src="https://github.com/Gigores/My-Neovim-config/blob/main/screenshots/screenshot1.png" width="60%" alt="Screenshot">
 
 ## Before installation
 
