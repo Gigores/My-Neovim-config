@@ -1,0 +1,6 @@
+require "core.options"
+require "core.keymaps"
+require "core.colorscheme"
+require "core.ui"
+require "core.lsp"
+require "core.snippets"
