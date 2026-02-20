@@ -1,7 +1,15 @@
-# 
-### (Almost) debloated and (almost) based neovim config
+# (Almost) debloated and (almost) based neovim config
 
-Native plugin manager, native lsp, good workflow.
+- Native plugin manager
+- Native lsp
+- Good workflow
+  - *Git*: Lazygit
+  - *Autocompletion*: blink.cmp + luasnip
+  - *Files*: oil.nvim + harpoon + telescope
+  - *Task runner integration*: Just
+- Calming Everforest theme
+
+<img src="https://github.com/Gigores/My-Neovim-config/blob/master/screenshots/screenshot1.png" width="60%" alt="Screenshot">
 
 ## Before installation
 
