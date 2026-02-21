@@ -36,7 +36,7 @@ map('t', '<Esc>', [[<C-\><C-n>]], { desc = "Exit terminal mode" })
 
 local Floatings = require "core.floatings"
 
-map('n', "<leader>jc", Floatings.create_terminal({"just", "--choose"}, { border = "rounded" }), { desc = "Choose & Run" })
-map('n', "<leader>jd", Floatings.create_terminal({"just", "default"}, { border = "rounded" }), { desc = "Run Default" })
-map('n', "<leader>g", Floatings.create_terminal({"lazygit"}, { border = "none" }), { desc = "Git" })
-map('n', "<leader>t", Floatings.create_terminal({}, { border = "rounded" }), { desc = "Open Terminal" })
+map('n', "<leader>jc", Floatings.create_terminal_app({"just", "--choose"}, { border = "rounded" }), { desc = "Choose & Run" })
+map('n', "<leader>jd", Floatings.create_terminal_app({"just", "default"}, { border = "rounded" }), { desc = "Run Default" })
+map('n', "<leader>g", Floatings.create_terminal_app({"lazygit"}, { border = "none" }), { desc = "Git" })
+map('n', "<leader>t", Floatings.create_terminal { border = "rounded" }, { desc = "Open Terminal" })

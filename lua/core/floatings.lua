@@ -9,7 +9,7 @@ function M.create_window(opts)
 		local height = math.floor(max_height * 0.75)
 
 		local buf = vim.api.nvim_create_buf(false, true)
-		vim.api.nvim_open_win(buf, true, {
+		local win = vim.api.nvim_open_win(buf, true, {
 			relative = "editor",
 			width = width,
 			height = height,
@@ -17,13 +17,27 @@ function M.create_window(opts)
 			row = (max_height - height) / 2,
 			border = opts.border,
 		})
+		return win, buf
 	end
 end
 
-function M.create_terminal(cmd, opts)
+function M.create_terminal(opts)
 	return function()
 		M.create_window(opts)()
-		vim.cmd.term(cmd)
+		vim.cmd.term()
+		vim.cmd.startinsert()
+	end
+end
+
+function M.create_terminal_app(cmd, opts)
+	return function()
+		local window, _ = M.create_window(opts)()
+		vim.fn.termopen(cmd, {
+			on_exit = opts.on_exit or function(_, _, code)
+				print(type(code))
+				vim.api.nvim_win_close(window, false)
+			end,
+		})
 		vim.cmd.startinsert()
 	end
 end
