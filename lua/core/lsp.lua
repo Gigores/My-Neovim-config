@@ -121,9 +121,9 @@ require("nvim-treesitter-textobjects").setup {
 		selection_modes = {
 			['@parameter.outer'] = 'v',
 			['@function.outer'] = 'V',
-			['@class.outer'] = '<c-v>',
+			['@class.outer'] = 'v',
 		},
-		include_surrounding_whitespace = false,
+		include_surrounding_whitespace = false, -- tete
 	},
 }
 
@@ -142,3 +142,27 @@ end, { desc = "class" })
 vim.keymap.set({ "x", "o" }, "as", function()
 	require "nvim-treesitter-textobjects.select".select_textobject("@local.scope", "locals")
 end, { desc = "locals" })
+vim.keymap.set({ "x", "o" }, "iC", function()
+	require "nvim-treesitter-textobjects.select".select_textobject("@comment.inner", "textobjects")
+end, { desc = "comment" })
+vim.keymap.set({ "x", "o" }, "aC", function()
+	require "nvim-treesitter-textobjects.select".select_textobject("@comment.outer", "textobjects")
+end, { desc = "comment" })
+vim.keymap.set({ "x", "o" }, "ip", function()
+	require "nvim-treesitter-textobjects.select".select_textobject("@parameter.inner", "textobjects")
+end, { desc = "parameter" })
+vim.keymap.set({ "x", "o" }, "ap", function()
+	require "nvim-treesitter-textobjects.select".select_textobject("@parameter.outer", "textobjects")
+end, { desc = "parameter" })
+vim.keymap.set({ "x", "o" }, "il", function()
+	require "nvim-treesitter-textobjects.select".select_textobject("@loop.inner", "textobjects")
+end, { desc = "loop" })
+vim.keymap.set({ "x", "o" }, "al", function()
+	require "nvim-treesitter-textobjects.select".select_textobject("@loop.outer", "textobjects")
+end, { desc = "loop" })
+vim.keymap.set({ "x", "o" }, "iF", function()
+	require "nvim-treesitter-textobjects.select".select_textobject("@contitional.inner", "textobjects")
+end, { desc = "contitional" })
+vim.keymap.set({ "x", "o" }, "aF", function()
+	require "nvim-treesitter-textobjects.select".select_textobject("@contitional.outer", "textobjects")
+end, { desc = "contitional" })
