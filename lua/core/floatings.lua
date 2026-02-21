@@ -33,9 +33,10 @@ function M.create_terminal_app(cmd, opts)
 	return function()
 		local window, _ = M.create_window(opts)()
 		vim.fn.termopen(cmd, {
-			on_exit = opts.on_exit or function(_, _, code)
-				print(type(code))
-				vim.api.nvim_win_close(window, false)
+			on_exit = opts.on_exit or function()
+				if opts and opts.close_on_exit then
+					vim.api.nvim_win_close(window, false)
+				end
 			end,
 		})
 		vim.cmd.startinsert()
