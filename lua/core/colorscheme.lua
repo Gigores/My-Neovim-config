@@ -2,6 +2,8 @@ vim.pack.add {
 	{ src = "https://github.com/neanias/everforest-nvim" }
 }
 
+require "everforest".setup()
+
 vim.cmd "colorscheme everforest"
 
 -- transparent background
@@ -20,11 +22,4 @@ vim.api.nvim_set_hl(0, "TelescopeBorder", { bg = "none" })
 vim.api.nvim_set_hl(0, "TelescopeNormal", { bg = "none" })
 vim.api.nvim_set_hl(0, "TelescopePromptBorder", { bg = "none" })
 vim.api.nvim_set_hl(0, "TelescopePromptTitle", { bg = "none" })
-
--- transparent background for neotree
-vim.api.nvim_set_hl(0, "NeoTreeNormal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NeoTreeNormalNC", { bg = "none" })
-vim.api.nvim_set_hl(0, "NeoTreeVertSplit", { bg = "none" })
-vim.api.nvim_set_hl(0, "NeoTreeWinSeparator", { bg = "none" })
-vim.api.nvim_set_hl(0, "NeoTreeEndOfBuffer", { bg = "none" })
 
