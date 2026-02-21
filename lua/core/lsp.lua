@@ -41,7 +41,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		key.set('n', "<leader>ca", vim.lsp.buf.code_action, opts)
 
 		opts.desc = "find references"
-		key.set('n', "<leader>cr", vim.lsp.buf.references, opts)
+		key.set('n', "<leader>cR", vim.lsp.buf.references, opts)
 
 		opts.desc = "format"
 		key.set('n', "<leader>cf", function()
