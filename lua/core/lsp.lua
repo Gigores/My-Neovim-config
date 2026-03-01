@@ -4,7 +4,45 @@ vim.pack.add {
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
 }
+vim.pack.add({
+	{
+		src = 'https://github.com/JavaHello/spring-boot.nvim',
+		version = '218c0c26c14d99feca778e4d13f5ec3e8b1b60f0',
+	},
+	'https://github.com/MunifTanjim/nui.nvim',
+	'https://github.com/mfussenegger/nvim-dap',
 
+	'https://github.com/nvim-java/nvim-java',
+})
+
+require('java').setup()
+vim.lsp.config('jdtls', {
+	settings = {
+		java = {
+			configuration = {
+				runtimes = {
+					{
+						name = "JavaSE-21",
+						path = "/usr/lib/jvm/java-21-openjdk",
+						default = true,
+					},
+					{
+						name = "JavaSE-1.8",
+						path = "/usr/lib/jvm/java-8-openjdk",
+					},
+					{
+						name = "JavaSE-17",
+						path = "/usr/lib/jvm/java-17-openjdk",
+					},
+					{
+						name = "JavaSE-25",
+						path = "/usr/lib/jvm/java-25-openjdk",
+					}
+				}
+			}
+		}
+	}
+})
 vim.lsp.enable {
 	"lua_ls",
 	"rust_analyzer",
