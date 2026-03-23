@@ -32,7 +32,7 @@ map('n', "<leader>W", ":w<CR>", { desc = " :w" })
 map('n', "<leader>q", ":q<CR>", { desc = " :q" })
 map('n', "<leader>Q", ":qa<CR>", { desc = " :qa" })
 
-map('t', '<Esc>', [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+map('t', '<Esc><Esc>', [[<C-\><C-n>]], { desc = "Exit terminal mode" })
 
 local Floatings = require "core.floatings"
 
