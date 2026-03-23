@@ -49,6 +49,7 @@ vim.lsp.enable {
 	"jdtls",
 	"clangd",
 	"typescript-language-server",
+	"pyright",
 }
 
 vim.api.nvim_create_autocmd("LspAttach", {
