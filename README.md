@@ -16,6 +16,6 @@
 You need to install some **Language Severs**:
 ```bash
 # On Arch linux with yay
-yay -S jdtls lua-language-server llvm rust-analyzer pyright
+yay -S jdtls lua-language-server llvm rust-analyzer pyright typescript-language-server
 ```
 And make sure you are using Neovim 0.12 or greater.

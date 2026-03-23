@@ -48,7 +48,7 @@ vim.lsp.enable {
 	"rust_analyzer",
 	"jdtls",
 	"clangd",
-	"typescript-language-server",
+	"ts_ls",
 	"pyright",
 }
 
@@ -137,6 +137,9 @@ treesitter.setup {
 		"java",
 		"rust",
 		"c",
+		"typescript",
+		"tsx",
+		"javascript"
 	},
 	incremental_selection = {
 		enable = true,

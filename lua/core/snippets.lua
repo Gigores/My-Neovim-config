@@ -3,7 +3,7 @@ vim.pack.add {
 	{ src = "https://github.com/Saghen/blink.cmp", version = vim.version.range("1.*") }
 }
 require "luasnip".setup { enable_autosnippets = true }
-require "luasnip.loaders.from_vscode".lazy_load()
+require "luasnip.loaders.from_vscode".lazy_load { paths = { "./.vscode" } }
 require "blink.cmp".setup {
 	fuzzy = {
 		prebuilt_binaries = { download = true },
