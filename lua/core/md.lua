@@ -8,10 +8,10 @@ markdown.setup {
 	file_types = { 'markdown', 'vimwiki' },
 	checkbox = {
 		checked = {
-			icon = "  "
+			icon = "  "
 		},
 		unchecked = {
-			icon = "  "
+			icon = "  "
 		},
 		custom = {}
 	}

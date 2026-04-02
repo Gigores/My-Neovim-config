@@ -43,9 +43,12 @@ vim.opt.hlsearch = true
 vim.opt.mouse      = "a"
 vim.g.editorconfig = true
 
-vim.o.list = true
--- vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
-vim.opt.listchars = { tab = '| ', trail = '·', nbsp = '␣' }
+vim.opt.listchars = {
+	tab = "| ",
+	trail = "·",
+	nbsp = "␣",
+	leadmultispace = "|   ",
+}
 
 vim.api.nvim_create_autocmd('TextYankPost', {
 	desc = 'Highlight when yanking (copying) text',
