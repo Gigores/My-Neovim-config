@@ -139,7 +139,9 @@ treesitter.setup {
 		"c",
 		"typescript",
 		"tsx",
-		"javascript"
+		"javascript",
+		"html",
+		"latex"
 	},
 	incremental_selection = {
 		enable = true,
