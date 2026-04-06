@@ -27,7 +27,7 @@ map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-map('n', "<leader>r", ":update<CR>:source<CR>", { desc = "Source the current file" })
+map('n', "<leader>r", ":restart<CR>", { desc = "Source the current file" })
 map('n', "<leader>W", ":w<CR>", { desc = " :w" })
 map('n', "<leader>q", ":q<CR>", { desc = " :q" })
 map('n', "<leader>Q", ":qa<CR>", { desc = " :qa" })
