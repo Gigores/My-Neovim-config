@@ -11,6 +11,7 @@ vim.pack.add {
 	"https://github.com/nvim-lualine/lualine.nvim",
 	{ src = "https://github.com/ThePrimeagen/harpoon", version = "harpoon2" },
 }
+vim.cmd.packadd "nvim.undotree"
 
 local hooks = function(ev)
 	local name, kind = ev.data.spec.name, ev.data.kind
