@@ -1,5 +1,5 @@
 vim.pack.add {
-	{ src = "https://github.com/neanias/everforest-nvim" }
+	"https://github.com/neanias/everforest-nvim"
 }
 
 require "everforest".setup()

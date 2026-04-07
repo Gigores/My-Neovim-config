@@ -1,6 +1,6 @@
 vim.pack.add {
-	{ src = "https://github.com/nvim-mini/mini.nvim" },
-	{ src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" }
+	"https://github.com/nvim-mini/mini.nvim",
+	"https://github.com/MeanderingProgrammer/render-markdown.nvim"
 }
 vim.treesitter.language.register('markdown', 'vimwiki')
 local markdown = require "render-markdown"

@@ -1,5 +1,5 @@
 vim.pack.add {
-	{ src = "https://github.com/L3MON4D3/LuaSnip" },
+	"https://github.com/L3MON4D3/LuaSnip",
 	{ src = "https://github.com/Saghen/blink.cmp", version = vim.version.range("1.*") }
 }
 require "luasnip".setup { enable_autosnippets = true }

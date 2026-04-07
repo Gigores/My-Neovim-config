@@ -1,13 +1,13 @@
 vim.pack.add {
-	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
-	{ src = "https://github.com/romgrk/fzy-lua-native" },
-	{ src = "https://github.com/stevearc/oil.nvim" },
-	{ src = "https://github.com/folke/which-key.nvim" },
-	{ src = "https://github.com/gelguy/wilder.nvim" },
-	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
-	{ src = "https://github.com/nvim-lua/plenary.nvim" },
+	"https://github.com/nvim-tree/nvim-web-devicons",
+	"https://github.com/romgrk/fzy-lua-native",
+	"https://github.com/stevearc/oil.nvim",
+	"https://github.com/folke/which-key.nvim",
+	"https://github.com/gelguy/wilder.nvim",
+	"https://github.com/lewis6991/gitsigns.nvim",
+	"https://github.com/nvim-lua/plenary.nvim",
 	{ src = "https://github.com/nvim-telescope/telescope.nvim", name = "make" },
-	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
+	"https://github.com/nvim-lualine/lualine.nvim",
 	{ src = "https://github.com/ThePrimeagen/harpoon", version = "harpoon2" },
 }
 

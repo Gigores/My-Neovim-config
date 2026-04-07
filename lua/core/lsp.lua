@@ -1,8 +1,8 @@
 vim.pack.add {
-	{ src = "https://github.com/hrsh7th/nvim-cmp" },
-	{ src = "https://github.com/windwp/nvim-autopairs" },
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
+	"https://github.com/hrsh7th/nvim-cmp",
+	"https://github.com/windwp/nvim-autopairs",
+	"https://github.com/nvim-treesitter/nvim-treesitter",
+	"https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
 }
 vim.pack.add({
 	{
