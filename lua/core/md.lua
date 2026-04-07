@@ -19,15 +19,21 @@ markdown.setup {
 	file_types = { 'markdown', 'vimwiki' },
 	checkbox = {
 		checked = {
-			icon = " "
+			icon = "󰄵 "
 		},
 		unchecked = {
-			icon = " "
+			icon = "󰄱 "
 		},
 		custom = {
 			in_progress = {
+				raw = "[.]",
+				rendered = "󱑎 ",
+				highlight = 'DiagnosticWarn',
+				scope_highlight = nil
+			},
+			partial = {
 				raw = "[/]",
-				rendered = " ",
+				rendered = "󰛲 ",
 				highlight = 'DiagnosticWarn',
 				scope_highlight = nil
 			}
