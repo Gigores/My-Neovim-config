@@ -2,18 +2,17 @@ vim.pack.add {
 	"https://github.com/hrsh7th/nvim-cmp",
 	"https://github.com/windwp/nvim-autopairs",
 	"https://github.com/nvim-treesitter/nvim-treesitter",
-	"https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
-}
-vim.pack.add({
+	"https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
 	{
 		src = 'https://github.com/JavaHello/spring-boot.nvim',
 		version = '218c0c26c14d99feca778e4d13f5ec3e8b1b60f0',
 	},
 	'https://github.com/MunifTanjim/nui.nvim',
 	'https://github.com/mfussenegger/nvim-dap',
-
 	'https://github.com/nvim-java/nvim-java',
-})
+
+	"https://github.com/nguyenvukhang/nvim-toggler",
+}
 
 require('java').setup()
 vim.lsp.config('jdtls', {
@@ -210,3 +209,7 @@ end, { desc = "contitional" })
 vim.keymap.set({ "x", "o" }, "aF", function()
 	require "nvim-treesitter-textobjects.select".select_textobject("@contitional.outer", "textobjects")
 end, { desc = "contitional" })
+
+require 'nvim-toggler'.setup {}
+
+vim.keymap.set({ 'n', 'v' }, "<leader>ct", require "nvim-toggler".toggle, { desc = "toggle" })

@@ -29,19 +29,16 @@ markdown.setup {
 				raw = "[.]",
 				rendered = "󱑎 ",
 				highlight = 'DiagnosticWarn',
-				scope_highlight = nil
 			},
 			partial = {
 				raw = "[-]",
 				rendered = "󰛲 ",
 				highlight = 'DiagnosticWarn',
-				scope_highlight = nil
 			},
 			rejected = {
 				raw = "[/]",
 				rendered = "󰅘 ",
 				highlight = 'DiagnosticError',
-				scope_highlight = nil
 			}
 		}
 	}
