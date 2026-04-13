@@ -1,8 +1,10 @@
+local gh = require "util.providers".github
+
 vim.pack.add {
-	"https://github.com/nvim-tree/nvim-web-devicons",
-	"https://github.com/nvim-lualine/lualine.nvim",
-	"https://github.com/folke/which-key.nvim",
-	"https://github.com/lewis6991/gitsigns.nvim",
+	gh "nvim-tree/nvim-web-devicons",
+	gh "nvim-lualine/lualine.nvim",
+	gh "folke/which-key.nvim",
+	gh "lewis6991/gitsigns.nvim",
 }
 local wk = require "which-key"
 wk.setup {

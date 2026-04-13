@@ -1,9 +1,11 @@
-vim.pack.add {
-	"https://github.com/nvim-lua/plenary.nvim",
-	{ src = "https://github.com/ThePrimeagen/harpoon", version = "harpoon2" },
+local gh = require "util.providers".github
 
-	{ src = "https://github.com/nvim-telescope/telescope.nvim", name = "make" },
-	"https://github.com/stevearc/oil.nvim",
+vim.pack.add {
+	gh "nvim-lua/plenary.nvim",
+	{ src = gh "ThePrimeagen/harpoon", version = "harpoon2" },
+
+	{ src = gh "nvim-telescope/telescope.nvim", name = "make" },
+	gh "stevearc/oil.nvim",
 }
 
 local harpoon = require("harpoon")

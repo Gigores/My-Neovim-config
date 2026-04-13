@@ -1,5 +1,7 @@
+local gh = require "util.providers".github
+
 vim.pack.add {
-	"https://github.com/nguyenvukhang/nvim-toggler"
+	gh "nguyenvukhang/nvim-toggler"
 }
 
 local toggler = require "nvim-toggler"

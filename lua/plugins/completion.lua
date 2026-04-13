@@ -1,10 +1,12 @@
+local gh = require "util.providers".github
+
 vim.pack.add {
-	"https://github.com/hrsh7th/nvim-cmp",
-	"https://github.com/L3MON4D3/LuaSnip",
-	"https://github.com/windwp/nvim-autopairs",
+	gh "hrsh7th/nvim-cmp",
+	gh "L3MON4D3/LuaSnip",
+	gh "windwp/nvim-autopairs",
 	{
-		src = "https://github.com/Saghen/blink.cmp",
-		version = vim.version.range("1.*")
+		src = gh "Saghen/blink.cmp",
+		version = vim.version.range "1.*",
 	},
 }
 require "luasnip".setup {

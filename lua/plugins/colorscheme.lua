@@ -1,5 +1,7 @@
+local gh = require "util.providers".github
+
 vim.pack.add {
-	"https://github.com/neanias/everforest-nvim"
+	gh "neanias/everforest-nvim",
 }
 
 require "everforest".setup()

@@ -1,6 +1,8 @@
+local gh = require "util.providers".github
+
 vim.pack.add {
-	"https://github.com/nvim-treesitter/nvim-treesitter",
-	"https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
+	gh "nvim-treesitter/nvim-treesitter",
+	gh "nvim-treesitter/nvim-treesitter-textobjects",
 }
 
 local treesitter = require "nvim-treesitter"
