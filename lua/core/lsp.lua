@@ -1,6 +1,5 @@
 vim.pack.add {
 
-	"https://github.com/nguyenvukhang/nvim-toggler",
 }
 
 vim.lsp.config('jdtls', {
@@ -98,6 +97,3 @@ vim.diagnostic.config {
 	virtual_lines = true,
 }
 
-require 'nvim-toggler'.setup {}
-
-vim.keymap.set({ 'n', 'v' }, "<leader>ct", require "nvim-toggler".toggle, { desc = "toggle" })
