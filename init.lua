@@ -5,6 +5,7 @@ require "core.snippets"
 require "core.md"
 
 require "plugins.completion"
+require "plugins.treesitter"
 
 require "config.colorscheme"
 require "config.ui"
