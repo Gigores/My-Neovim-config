@@ -1,8 +1,6 @@
 require "core.options"
 require "core.keymaps"
 require "core.lsp"
-require "core.snippets"
-require "core.md"
 require "core.ui"
 
 require "plugins.completion"
