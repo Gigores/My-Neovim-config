@@ -122,3 +122,15 @@ end
 -- vim.keymap.set("n", "<leader>h>", next, { desc = "Open next" })
 vim.keymap.set("n", "<leader>hk", prev, { desc = "Open previous" })
 vim.keymap.set("n", "<leader>hj", next, { desc = "Open next" })
+
+vim.diagnostic.config {
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = " ",
+			[vim.diagnostic.severity.WARN] = " ",
+			[vim.diagnostic.severity.HINT] = "󰠠 ",
+			[vim.diagnostic.severity.INFO] = " ",
+		}
+	},
+	virtual_lines = true,
+}
