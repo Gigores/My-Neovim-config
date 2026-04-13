@@ -10,9 +10,9 @@ require "plugins.treesitter"
 require "plugins.java"
 require "plugins.toggler"
 require "plugins.navigation"
+require "plugins.ui"
 
 require "config.colorscheme"
-require "config.ui"
 
 vim.filetype.add {
     extension = {

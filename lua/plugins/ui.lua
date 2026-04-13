@@ -1,12 +1,9 @@
-require "vim._core.ui2".enable {}
 vim.pack.add {
 	"https://github.com/nvim-tree/nvim-web-devicons",
 	"https://github.com/nvim-lualine/lualine.nvim",
 	"https://github.com/folke/which-key.nvim",
 	"https://github.com/lewis6991/gitsigns.nvim",
 }
-vim.cmd.packadd "nvim.undotree"
-
 local wk = require "which-key"
 wk.setup {
 	preset = "helix",
@@ -31,14 +28,3 @@ require "lualine".setup {
 }
 
 
-vim.diagnostic.config {
-	signs = {
-		text = {
-			[vim.diagnostic.severity.ERROR] = " ",
-			[vim.diagnostic.severity.WARN] = " ",
-			[vim.diagnostic.severity.HINT] = "󰠠 ",
-			[vim.diagnostic.severity.INFO] = " ",
-		}
-	},
-	virtual_lines = true,
-}
