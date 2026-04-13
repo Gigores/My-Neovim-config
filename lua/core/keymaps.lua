@@ -36,7 +36,7 @@ map('n', "<leader>u", ":Undotree<CR>", { desc = "Undo tree" })
 
 map('t', '<Esc><Esc>', [[<C-\><C-n>]], { desc = "Exit terminal mode" })
 
-local Floatings = require "core.floatings"
+local Floatings = require "util.floatings"
 
 map('n', "<leader>jc", Floatings.create_terminal_app({"just", "--choose"}, { border = "rounded" }), { desc = "Choose & Run" })
 map('n', "<leader>jd", Floatings.create_terminal_app({"just", "default"}, { border = "rounded" }), { desc = "Run Default" })

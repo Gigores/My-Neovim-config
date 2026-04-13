@@ -1,6 +1,4 @@
 vim.pack.add {
-	"https://github.com/hrsh7th/nvim-cmp",
-	"https://github.com/windwp/nvim-autopairs",
 	"https://github.com/nvim-treesitter/nvim-treesitter",
 	"https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
 	{
@@ -109,13 +107,6 @@ vim.diagnostic.config {
 	},
 	virtual_lines = true,
 }
-
-local autopairs = require "nvim-autopairs"
-autopairs.setup { check_ts = true }
-local cmp_autopairs = require "nvim-autopairs.completion.cmp"
-local cmp = require "cmp"
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-
 
 local treesitter = require "nvim-treesitter"
 

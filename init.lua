@@ -4,6 +4,8 @@ require "core.lsp"
 require "core.snippets"
 require "core.md"
 
+require "plugins.completion"
+
 require "config.colorscheme"
 require "config.ui"
 
