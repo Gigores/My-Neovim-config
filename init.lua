@@ -1,5 +1,12 @@
-require "core"
--- require "lazy_init"
+require "core.options"
+require "core.keymaps"
+require "core.lsp"
+require "core.snippets"
+require "core.md"
+
+require "config.colorscheme"
+require "config.ui"
+
 vim.filetype.add {
     extension = {
         gr = "gearshift",
