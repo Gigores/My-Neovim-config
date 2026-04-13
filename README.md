@@ -5,7 +5,7 @@
 - Good workflow
   - *Git*: Lazygit
   - *Autocompletion*: blink.cmp + luasnip
-  - *Files*: oil.nvim + harpoon + telescope
+  - *File navigation*: oil.nvim + harpoon + telescope
   - *Task runner integration*: Just
 - Calming Everforest theme
 
@@ -16,6 +16,10 @@
 You need to install some **Language Severs**:
 ```bash
 # On Arch linux with yay
-yay -S lazygit jdtls lua-language-server llvm rust-analyzer pyright typescript-language-server
+yay -S jdtls lua-language-server llvm rust-analyzer pyright typescript-language-server
+```
+As well as some cli utilities:
+```bash
+yay -S lazygit
 ```
 And make sure you are using Neovim 0.12 or greater.
