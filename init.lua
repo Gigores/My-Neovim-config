@@ -6,6 +6,7 @@ require "core.md"
 
 require "plugins.completion"
 require "plugins.treesitter"
+require "plugins.java"
 
 require "config.colorscheme"
 require "config.ui"
