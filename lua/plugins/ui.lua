@@ -6,6 +6,7 @@ vim.pack.add {
 	gh "folke/which-key.nvim",
 	gh "lewis6991/gitsigns.nvim",
 	gh "j-hui/fidget.nvim",
+	gh "norcalli/nvim-colorizer.lua",
 }
 local wk = require "which-key"
 wk.setup {
@@ -31,3 +32,5 @@ require "lualine".setup {
 }
 
 require "fidget".setup {}
+
+require "colorizer".setup {}
