@@ -5,6 +5,7 @@ vim.pack.add {
 	gh "nvim-lualine/lualine.nvim",
 	gh "folke/which-key.nvim",
 	gh "lewis6991/gitsigns.nvim",
+	gh "j-hui/fidget.nvim",
 }
 local wk = require "which-key"
 wk.setup {
@@ -29,4 +30,4 @@ require "lualine".setup {
 	}
 }
 
-
+require "fidget".setup {}
