@@ -11,6 +11,7 @@ require "plugins.navigation"
 require "plugins.ui"
 require "plugins.md"
 require "plugins.colorscheme"
+require "plugins.surround"
 
 vim.filetype.add {
     extension = {
