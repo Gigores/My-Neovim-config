@@ -113,6 +113,9 @@ local fields = {
 	["OilDirHidden"] = { fg = COLORS.comment },
 	["OilFileHidden"] = { fg = COLORS.comment },
 
+	-- Markdown
+	["ColorColumn"] = { bg = COLORS.menu_bg },
+
 	-- lua
 	["@constructor.lua"] = { fg = COLORS.fg },
 	["@constant.lua"] = { fg = COLORS.constant },
