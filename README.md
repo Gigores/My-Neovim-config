@@ -22,9 +22,9 @@
   - *Java*
   - *C*
 - Works, but likely requires tweaking custom colorschemes
-  - *rust*
-  - *javascript*
-  - *python*
+  - *Rust*
+  - *JavaScript*
+  - *Python*
 - May work, not tested at all
   - *C++*
   - *Objective C*
