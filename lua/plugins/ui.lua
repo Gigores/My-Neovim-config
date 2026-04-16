@@ -32,7 +32,8 @@ require "lualine".setup {
 
 require "fidget".setup {}
 
-require "colorizer".setup {
+require "colorizer".setup({
 	"*";
+}, {
 	RRGGBBAA = true
-}
+})
