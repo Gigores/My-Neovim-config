@@ -19,7 +19,7 @@ wk.setup {
 		{ "<leader>jc", icon = "󰍜 " }
 	},
 	win = {
-		border = "rounded",
+		border = "solid",
 	},
 }
 

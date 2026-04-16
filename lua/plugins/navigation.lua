@@ -8,6 +8,8 @@ vim.pack.add {
 	gh "stevearc/oil.nvim",
 }
 
+-- HARPOON
+
 local harpoon = require("harpoon")
 harpoon:setup()
 
@@ -32,11 +34,15 @@ end
 vim.keymap.set("n", "<leader>hk", prev, { desc = "Open previous" })
 vim.keymap.set("n", "<leader>hj", next, { desc = "Open next" })
 
+-- TELESCOPE
+
 local builtin = require "telescope.builtin"
 vim.keymap.set('n', '<leader><space>', builtin.find_files, { desc = 'Search files' })
 vim.keymap.set('n', '<leader>/', builtin.live_grep, { desc = 'Search file contens' })
 vim.keymap.set('v', '<leader><space>', builtin.grep_string, { desc = 'Search selection' })
 require "telescope".setup {}
+
+-- OIL
 
 local oil = require "oil"
 oil.setup {
@@ -45,10 +51,10 @@ oil.setup {
 	},
 	float = {
 		padding = 10,
-		border = "rounded",
+		border = "solid",
 	},
 	keymaps_help = {
-		border = "rounded",
+		border = "solid",
 	},
 	keymaps = {
 		["K"] = { "k", mode = 'n' },
