@@ -108,7 +108,10 @@ local fields = {
 
 	-- lua
 	["@constructor.lua"] = { fg = COLORS.fg },
+	["@constant.lua"] = { fg = COLORS.constant },
 	["@lsp.typemod.function.declaration.lua"] = { fg = COLORS.func_dec },
+	["@lsp.mod.defaultLibrary.lua"] = { fg = COLORS.constant },
+	["@lsp.type.variable.lua"] = {},
 
 	-- java
 	["javaExternal"] = { fg = COLORS.keyword },
