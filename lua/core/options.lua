@@ -44,10 +44,10 @@ vim.g.editorconfig = true
 
 vim.opt.list = true
 vim.opt.listchars = {
-	tab = "| ",
+	tab = " ",
 	trail = "·",
 	nbsp = "␣",
-	leadmultispace = "|   ",
+	leadmultispace = "│   ",
 }
 vim.api.nvim_create_autocmd('TextYankPost', {
 	desc = 'Highlight when yanking (copying) text',
