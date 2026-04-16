@@ -7,7 +7,11 @@
   - *Autocompletion*: blink.cmp + luasnip
   - *File navigation*: oil.nvim + harpoon + telescope
   - *Task runner integration*: Just
-- Calming Everforest theme
+- Additional colorschemes
+  - Custom
+    - jetBrains
+  - Other
+    - everforest
 
 <img src="https://github.com/Gigores/My-Neovim-config/blob/main/screenshots/screenshot1.png" width="60%" alt="Screenshot">
 
