@@ -19,3 +19,5 @@ vim.filetype.add {
     },
     pattern = { ["*.gr"] = "gearshift" }
 }
+
+vim.cmd "colorscheme jetBrains"

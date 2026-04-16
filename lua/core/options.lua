@@ -55,4 +55,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 	callback = function() vim.hl.on_yank() end,
 })
 
-vim.cmd "colorscheme jetBrains"
