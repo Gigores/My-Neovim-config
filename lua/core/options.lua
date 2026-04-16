@@ -44,7 +44,7 @@ vim.g.editorconfig = true
 
 vim.opt.list = true
 vim.opt.listchars = {
-	tab = " ",
+	tab = "│ ",
 	trail = "·",
 	nbsp = "␣",
 	leadmultispace = "│   ",
@@ -54,3 +54,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 	group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
 	callback = function() vim.hl.on_yank() end,
 })
+
+vim.cmd "colorscheme jetBrains"
