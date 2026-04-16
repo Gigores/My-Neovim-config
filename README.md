@@ -15,6 +15,21 @@
 
 <img src="https://github.com/Gigores/My-Neovim-config/blob/main/screenshots/screenshot1.png" width="60%" alt="Screenshot">
 
+## Supported languages
+
+- Fully supported
+  - *Lua*
+  - *Java*
+- Works, but likely requires tweaking custom colorschemes
+  - *C*
+  - *rust*
+  - *javascript*
+  - *python*
+- May work, not tested at all
+  - *C++*
+  - *Objective C*
+  - *TypeScript*
+
 ## Before installation
 
 You need to install some **Language Severs**:
