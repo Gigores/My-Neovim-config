@@ -44,7 +44,7 @@ local fields = {
 	["Cursor"]       = { fg = COLORS.bg, bg = COLORS.cursor },
 	["Visual"]       = { bg = COLORS.visual },
 	["Search"]       = { bg = COLORS.search },
-	["IncSearch"]    = { bg = COLORS.selection, bold = true },
+	["IncSearch"]    = { bg = COLORS.search, bold = true },
 	["Whitespace"]   = { fg = COLORS.whitespace },
 
 	["StatusLine"]   = { fg = COLORS.fg, bg = COLORS.statusline },
@@ -80,6 +80,7 @@ local fields = {
 	["Exception"]  = { fg = COLORS.keyword },
 	["PreProc"]    = { fg = COLORS.constant },
 	["Special"]    = { fg = COLORS.constant },
+	["Directory"] = { fg = COLORS.fg },
 
 	-- diagnostics
 	["DiagnosticError"] = { fg = COLORS.diag_error },
@@ -105,6 +106,12 @@ local fields = {
 	["@variable"]  = { fg = COLORS.variable },
 	["@function"]  = { fg = COLORS.Function },
 	["@method"]    = { fg = COLORS.Function },
+
+	-- Oil
+	["OilDir"] = { fg = COLORS.fg },
+	["OilFile"] = { fg = COLORS.fg },
+	["OilDirHidden"] = { fg = COLORS.comment },
+	["OilFileHidden"] = { fg = COLORS.comment },
 
 	-- lua
 	["@constructor.lua"] = { fg = COLORS.fg },
