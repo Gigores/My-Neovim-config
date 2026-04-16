@@ -7,17 +7,21 @@ local COLORS = {
 	comment    = "#7A7E85",
 	whitespace = "#2F333A",
 
-	keyword  = "#CF8E6D",
-	Function = "#BCBEC4",
-	string   = "#6AAB73",
-	constant = "#C77DBB",
-	type     = "#CF8E6D",
-	number   = "#2AACB8",
-	boolean  = "#CF8E6D",
-	operator = "#BCBEC4",
-	variable = "#BCBEC4",
-	func_dec = "#56A8F5",
-	metadata = "#B3AE60",
+	keyword      = "#CF8E6D",
+	Function     = "#BCBEC4",
+	string       = "#6AAB73",
+	constant     = "#C77DBB",
+	type         = "#CF8E6D",
+	number       = "#2AACB8",
+	boolean      = "#CF8E6D",
+	operator     = "#BCBEC4",
+	variable     = "#BCBEC4",
+	func_dec     = "#56A8F5",
+	metadata     = "#B3AE60",
+	struct_field = "#9373A5",
+
+	macro_name = "#908B25",
+	c_thing    = "#B5B6E3",
 
 	cursor     = "#CED0D6",
 	visual     = "#214283",
@@ -78,7 +82,7 @@ local fields = {
 	["Conditional"]= { fg = COLORS.keyword },
 	["Repeat"]     = { fg = COLORS.keyword },
 	["Exception"]  = { fg = COLORS.keyword },
-	["PreProc"]    = { fg = COLORS.constant },
+	["PreProc"] = { fg = COLORS.metadata },
 	["Special"]    = { fg = COLORS.constant },
 	["Directory"] = { fg = COLORS.fg },
 
@@ -132,6 +136,25 @@ local fields = {
 	["@lsp.typemod.method.declaration.java"] = { fg = COLORS.func_dec },
 	["@lsp.typemod.class.constructor.java"] = { fg = COLORS.func_dec },
 	["@lsp.type.namespace.java"] = { fg = COLORS.fg },
+
+	-- C
+	["@lsp.typemod.function.declaration.c"] = { fg = COLORS.func_dec },
+	["@lsp.typemod.function.definition.c"] = { fg = COLORS.func_dec },
+	["@lsp.type.property.c"] = { fg = COLORS.struct_field },
+	["@lsp.type.macro.c"] = { fg = COLORS.macro_name },
+	["@lsp.typemod.enum.declaration.c"] = { fg = COLORS.c_thing },
+	["@lsp.typemod.union.declaration.c"] = { fg = COLORS.c_thing },
+	["@lsp.typemod.struct.declaration.c"] = { fg = COLORS.c_thing },
+
+	-- C++
+	["@lsp.typemod.function.declaration.cpp"] = { fg = COLORS.func_dec },
+	["@lsp.typemod.function.definition.cpp"] = { fg = COLORS.func_dec },
+	["@lsp.type.property.cpp"] = { fg = COLORS.struct_field },
+	["@lsp.type.macro.cpp"] = { fg = COLORS.macro_name },
+	["@lsp.typemod.enum.declaration.cpp"] = { fg = COLORS.c_thing },
+	["@lsp.typemod.union.declaration.cpp"] = { fg = COLORS.c_thing },
+	["@lsp.typemod.class.declaration.cpp"] = { fg = COLORS.c_thing },
+	["@lsp.typemod.struct.declaration.cpp"] = { fg = COLORS.c_thing },
 }
 
 for k, v in pairs(fields) do
