@@ -81,17 +81,41 @@ local root_markers2 = {
 
 ---@type vim.lsp.Config
 return {
-  cmd = { 'lua-language-server' },
-  filetypes = { 'lua' },
-  root_markers = vim.fn.has('nvim-0.11.3') == 1 and { root_markers1, root_markers2, { '.git' } }
-    or vim.list_extend(vim.list_extend(root_markers1, root_markers2), { '.git' }),
+  cmd = { "lua-language-server" },
+  filetypes = { "lua" },
+  root_markers = vim.fn.has("nvim-0.11.3") == 1
+      and { root_markers1, root_markers2, { ".git" } }
+    or vim.list_extend(vim.list_extend(root_markers1, root_markers2), { ".git" }),
+
+  on_init = function(client)
+    local root = client.config.root_dir or ""
+    local nvim_config = vim.fn.stdpath("config")
+
+    local is_nvim_config =
+      root == nvim_config
+      or root:find(vim.pesc(nvim_config), 1) == 1
+
+    client.config.settings = client.config.settings or {}
+    client.config.settings.Lua = client.config.settings.Lua or {}
+    client.config.settings.Lua.workspace = {
+      checkThirdParty = false,
+      library = is_nvim_config
+          and vim.api.nvim_get_runtime_file("", true)
+        or {},
+    }
+
+    client.notify("workspace/didChangeConfiguration", {
+      settings = client.config.settings,
+    })
+  end,
+
   settings = {
     Lua = {
       codeLens = { enable = true },
-      hint = { enable = true, semicolon = 'Disable' },
-	  workspace = {
-		  library = vim.api.nvim_get_runtime_file("", true),
-	  }
+      hint = {
+        enable = true,
+        semicolon = "Disable",
+      },
     },
   },
 }
