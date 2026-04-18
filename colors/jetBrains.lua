@@ -158,6 +158,12 @@ local fields = {
 	["@lsp.typemod.union.declaration.cpp"] = { fg = COLORS.c_thing },
 	["@lsp.typemod.class.declaration.cpp"] = { fg = COLORS.c_thing },
 	["@lsp.typemod.struct.declaration.cpp"] = { fg = COLORS.c_thing },
+
+	-- JavaScript
+	["@lsp.type.namespace.javascript"] = { fg = COLORS.fg },
+	["@lsp.type.property.javascript"] = { fg = COLORS.constant },
+	["@lsp.typemod.function.declaration.javascript"] = { fg = COLORS.func_dec },
+	["@lsp.type.member.javascript"] = { fg = COLORS.func_dec },
 }
 
 for k, v in pairs(fields) do
