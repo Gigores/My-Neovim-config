@@ -23,6 +23,9 @@ local COLORS = {
 	macro_name = "#908B25",
 	c_thing    = "#B5B6E3",
 
+	rust_struct   = "#86985D",
+	rust_lifetime = "#20999D",
+
 	cursor     = "#CED0D6",
 	visual     = "#214283",
 	search     = "#2D543F",
@@ -164,6 +167,17 @@ local fields = {
 	["@lsp.type.property.javascript"] = { fg = COLORS.constant },
 	["@lsp.typemod.function.declaration.javascript"] = { fg = COLORS.func_dec },
 	["@lsp.type.member.javascript"] = { fg = COLORS.func_dec },
+
+	-- Rust
+	["@lsp.type.namespace.rust"] = { fg = COLORS.fg },
+	["@lsp.type.enum.rust"] = { fg = COLORS.rust_struct },
+	["@lsp.type.struct.rust"] = { fg = COLORS.rust_struct },
+	["rustSigil"] = { fg = COLORS.fg },
+	["@lsp.type.builtinType.rust"] = { fg = COLORS.keyword },
+	["rustLifetime"] = { fg = COLORS.rust_lifetime },
+	["@lsp.type.property.rust"] = { fg = COLORS.constant },
+	["@lsp.typemod.function.declaration.rust"] = { fg = COLORS.func_dec },
+	["@lsp.type.method.rust"] = { fg = COLORS.func_dec },
 }
 
 for k, v in pairs(fields) do
