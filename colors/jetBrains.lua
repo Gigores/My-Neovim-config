@@ -119,6 +119,9 @@ local fields = {
 
 	-- Markdown
 	["ColorColumn"] = { bg = COLORS.menu_bg },
+	["@markup.list.checked.markdown"] = { fg = COLORS.string },
+	["@markup.list.checked"] = { fg = COLORS.string },
+	["@markup.list.unchecked"] = { fg = COLORS.comment },
 
 	-- lua
 	["@constructor.lua"] = { fg = COLORS.fg },

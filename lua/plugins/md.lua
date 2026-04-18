@@ -33,7 +33,7 @@ markdown.setup {
 				highlight = 'DiagnosticWarn',
 			},
 			partial = {
-				raw = "[-]",
+				raw = "[|]",
 				rendered = "󰛲 ",
 				highlight = 'DiagnosticWarn',
 			},
