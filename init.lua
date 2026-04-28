@@ -2,6 +2,7 @@ require "core.options"
 require "core.keymaps"
 require "core.lsp"
 require "core.ui"
+require "core.setups"
 
 require "plugins.completion"
 require "plugins.treesitter"
