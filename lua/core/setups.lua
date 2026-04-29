@@ -3,7 +3,6 @@ local project_setups = {
 		local justfile = vim.fs.joinpath(dir, "Justfile")
 		local compile_flags = vim.fs.joinpath(dir, "compile_flags.txt")
 		local src = vim.fs.joinpath(dir, "src")
-		local resources = vim.fs.joinpath(dir, "resources")
 		local main = vim.fs.joinpath(src, "main.c")
 		local editorconfig = vim.fs.joinpath(dir, ".editorconfig")
 		local clangd = vim.fs.joinpath(dir, ".clangd")
@@ -41,7 +40,6 @@ local project_setups = {
 		}, justfile)
 		vim.fn.writefile({ "-Wall -Wextra" }, compile_flags)
 		vim.fn.mkdir(src, "p")
-		vim.fn.mkdir(resources, "p")
 		vim.fn.writefile({
 			"#include <stdio.h>",
 			"",
