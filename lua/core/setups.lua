@@ -28,40 +28,51 @@ local common_files = {
 		},
 
 		justfile = {
-			"build:",
-			"    @mkdir -p bin",
-			"    @gcc $(xargs < compile_flags.txt) src/*.c -o bin/main",
+			"set dotenv-filename := \"project.env\"",
+			"set dotenv-load := true",
 			"",
-			"build-asan:",
-			"    @mkdir -p bin",
-			"    @gcc $(xargs < compile_flags.txt) -fsanitize=address -g src/*.c -o bin/main",
+			"project_name := env_var(\"NAME\")",
+			"project_version := env_var(\"VERSION\")",
 			"",
-			"build-profiler:",
-			"    @mkdir -p bin",
-			"    @gcc $(xargs < compile_flags.txt) -pg -O0 -g src/*.c -o bin/main",
+			"binary := \"bin/\" + project_name",
+			"c_env := \"-DAPP_NAME=\\\\\\\"\" + project_name + \"\\\\\\\" \" + \\",
+			"         \"-DAPP_VERSION=\\\\\\\"\" + project_version + \"\\\\\\\"\"",
+			"",
+			"_create-bin:",
+			"    mkdir -p bin",
+			"",
+			"build: _create-bin",
+			"    gcc {{ c_env }} $(xargs < compile_flags.txt) src/*.c -o {{ binary }}",
+			"",
+			"build-asan: _create-bin",
+			"    gcc $(xargs < compile_flags.txt) {{ c_env }} -fsanitize=address -g src/*.c -o {{ binary }}",
+			"",
+			"build-profiler: _create-bin",
+			"    gcc $(xargs < compile_flags.txt) {{ c_env }} -pg -O0 -g src/*.c -o {{ binary }}",
 			"",
 			"run:",
-			"    @bin/main",
+			"    {{ binary }}",
 			"",
-			"run-asan: build-asan",
-			"    @just run",
+			"run-asan: build-asan run",
 			"",
-			"run-profiler: build-profiler",
-			"    @just run",
-			"    @gprof bin/main gmon.out > profile.txt",
-			"    @cat profile.txt",
+			"run-profiler: build-profiler run",
+			"    gprof bin/main gmon.out > profile.txt",
+			"    cat profile.txt",
 			"",
 			"clear:",
-			"    @rm -rf bin",
+			"    rm -rf bin",
 			"",
-			"default:",
-			"    @just build",
-			"    @just run",
+			"update-compiler-defines:",
+			"    bear -- just build",
+			"",
+			"default: build run",
 		}
 	}
 }
 local project_setups = {
 	["C noBuild application"] = function(dir)
+		AppName = "app_name"
+		AppVer = "app_ver"
 		local justfile = joinpath(dir, "Justfile")
 		local compile_flags = joinpath(dir, "compile_flags.txt")
 		local src = joinpath(dir, "src")
@@ -69,6 +80,9 @@ local project_setups = {
 		local editorconfig = joinpath(dir, ".editorconfig")
 		local clangd = joinpath(dir, ".clangd")
 		local gitignore = joinpath(dir, ".gitingnore")
+		local projectenv = joinpath(dir, "project.env")
+		vim.ui.input({ prompt = "Application Name: " }, function(input) AppName = input end)
+		vim.ui.input({ prompt = "Application Version: " }, function(input) AppVer = input end)
 		writefile(common_files.c.justfile, justfile)
 		writefile({ "-Wall -Wextra" }, compile_flags)
 		mkdir(src, "p")
@@ -76,16 +90,23 @@ local project_setups = {
 			"#include <stdio.h>",
 			"",
 			"int main(int argc, char **argv) {",
-			"    printf(\"Hello, World!\\n\");",
+			"    printf(\"Hello, \");",
+			"    printf(APP_NAME);",
+			"    printf(\"!\\n\");",
 			"    return 0;",
 			"}",
 		}, main)
 		writefile(common_files.c.editorconfig, editorconfig)
 		writefile(common_files.c.clangd, clangd)
 		writefile(common_files.c.gitignore, gitignore)
+		writefile({
+			"NAME="..AppName,
+			"VERSION="..AppVer,
+		}, projectenv)
 	end,
 	["C noBuild Raylib application"] = function(dir)
 		AppName = "app_name"
+		AppVer = "app_ver"
 		local justfile = joinpath(dir, "Justfile")
 		local compile_flags = joinpath(dir, "compile_flags.txt")
 		local src = joinpath(dir, "src")
@@ -95,7 +116,9 @@ local project_setups = {
 		local editorconfig = joinpath(dir, ".editorconfig")
 		local clangd = joinpath(dir, ".clangd")
 		local gitignore = joinpath(dir, ".gitingnore")
+		local projectenv = joinpath(dir, "project.env")
 		vim.ui.input({ prompt = "Application Name: " }, function(input) AppName = input end)
+		vim.ui.input({ prompt = "Application Version: " }, function(input) AppVer = input end)
 		writefile(common_files.c.justfile, justfile)
 		writefile({ "-lraylib -Wall -Wextra" }, compile_flags)
 		mkdir(src, "p")
@@ -103,15 +126,17 @@ local project_setups = {
 		writefile({
 			"#include \"common.h\"",
 			"",
+			"#define WINDOW_TITLE APP_NAME \" v\" APP_VERSION",
+			"",
 			"int main(int argc, char **argv)",
 			"{",
-			"	InitWindow(1280, 720, \""..AppName.."\");",
+			"	InitWindow(1280, 720, WINDOW_TITLE);",
 			"",
 			"	while (!WindowShouldClose())",
 			"	{",
 			"		BeginDrawing();",
 			"			ClearBackground(RAYWHITE);",
-			"			DrawText(\""..AppName.."\", 190, 200, 20, LIGHTGRAY);",
+			"			DrawText(APP_NAME, 190, 200, 20, LIGHTGRAY);",
 			"		EndDrawing();",
 			"	}",
 			"",
@@ -132,6 +157,10 @@ local project_setups = {
 		writefile(common_files.c.editorconfig, editorconfig)
 		writefile(common_files.c.clangd, clangd)
 		writefile(common_files.c.gitignore, gitignore)
+		writefile({
+			"NAME="..AppName,
+			"VERSION="..AppVer,
+		}, projectenv)
 	end,
 }
 
@@ -159,5 +188,6 @@ end
 
 vim.keymap.set('n', "<leader>S", function()
 	vim.ui.select(get_setup_names(), {}, run_setup)
+	vim.cmd "!just update-compiler-defines"
 	require "oil.actions".refresh.callback({})
 end, { desc = "Project setup wizard" })

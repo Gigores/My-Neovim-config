@@ -7,6 +7,7 @@
   - *Autocompletion*: blink.cmp + luasnip
   - *File navigation*: oil.nvim + harpoon + telescope
   - *Task runner integration*: Just
+  - *Project setup wizards* for C
 - Additional colorschemes
   - Custom
     - jetBrains
@@ -39,6 +40,6 @@ yay -S jdtls lua-language-server llvm rust-analyzer pyright typescript-language-
 ```
 As well as some cli utilities:
 ```bash
-yay -S lazygit
+yay -S lazygit bear
 ```
 And make sure you are using Neovim 0.12 or greater.
