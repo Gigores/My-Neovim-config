@@ -148,14 +148,16 @@ end
 
 local function run_setup(setup_name)
 	local setup = project_setups[setup_name]
+	local setup_path = vim.cmd.pwd()
 	if setup == nil then
 		error("Setup not found")
 	else
 		print("RUNNING "..setup_name)
-		setup(vim.cmd.pwd())
+		setup(setup_path)
 	end
 end
 
 vim.keymap.set('n', "<leader>S", function()
 	vim.ui.select(get_setup_names(), {}, run_setup)
+	require "oil.actions".refresh.callback({})
 end, { desc = "Project setup wizard" })
