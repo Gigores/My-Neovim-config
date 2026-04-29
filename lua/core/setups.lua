@@ -95,7 +95,7 @@ local project_setups = {
 		local editorconfig = joinpath(dir, ".editorconfig")
 		local clangd = joinpath(dir, ".clangd")
 		local gitignore = joinpath(dir, ".gitingnore")
-		vim.ui.input({}, function(input) AppName = input end)
+		vim.ui.input({ prompt = "Application Name: " }, function(input) AppName = input end)
 		writefile(common_files.c.justfile, justfile)
 		writefile({ "-lraylib -Wall -Wextra" }, compile_flags)
 		mkdir(src, "p")
@@ -140,6 +140,9 @@ local function get_setup_names()
 	for k, _ in pairs(project_setups) do
 		table.insert(project_setup_names, k)
 	end
+	table.sort(project_setup_names, function(a, b)
+		return a:lower() < b:lower()
+	end)
 	return project_setup_names
 end
 
