@@ -1,54 +1,10 @@
-local project_setups = {
-	["C noBuild application"] = function(dir)
-		local justfile = vim.fs.joinpath(dir, "Justfile")
-		local compile_flags = vim.fs.joinpath(dir, "compile_flags.txt")
-		local src = vim.fs.joinpath(dir, "src")
-		local main = vim.fs.joinpath(src, "main.c")
-		local editorconfig = vim.fs.joinpath(dir, ".editorconfig")
-		local clangd = vim.fs.joinpath(dir, ".clangd")
-		local gitignore = vim.fs.joinpath(dir, ".gitingnore")
-		vim.fn.writefile({
-			"build:",
-			"    @mkdir -p bin",
-			"    @gcc $(xargs < compile_flags.txt) src/*.c -o bin/main",
-			"",
-			"build-asan:",
-			"    @mkdir -p bin",
-			"    @gcc $(xargs < compile_flags.txt) -fsanitize=address -g src/*.c -o bin/main",
-			"",
-			"build-profiler:",
-			"    @mkdir -p bin",
-			"    @gcc $(xargs < compile_flags.txt) -pg -O0 -g src/*.c -o bin/main",
-			"",
-			"run:",
-			"    @bin/main",
-			"",
-			"run-asan: build-asan",
-			"    @just run",
-			"",
-			"run-profiler: build-profiler",
-			"    @just run",
-			"    @gprof bin/main gmon.out > profile.txt",
-			"    @cat profile.txt",
-			"",
-			"clear:",
-			"    @rm -rf bin",
-			"",
-			"default:",
-			"    @just build",
-			"    @just run",
-		}, justfile)
-		vim.fn.writefile({ "-Wall -Wextra" }, compile_flags)
-		vim.fn.mkdir(src, "p")
-		vim.fn.writefile({
-			"#include <stdio.h>",
-			"",
-			"int main(int argc, char **argv) {",
-			"    printf(\"Hello, World!\\n\");",
-			"    return 0;",
-			"}",
-		}, main)
-		vim.fn.writefile({
+local writefile = vim.fn.writefile
+local mkdir = vim.fn.mkdir
+local joinpath = vim.fs.joinpath
+
+local common_files = {
+	c = {
+		editorconfig = {
 			"# https://editorconfig.org",
 			"root = true",
 			"",
@@ -58,30 +14,20 @@ local project_setups = {
 			"charset = utf-8",
 			"trim_trailing_whitespace = true",
 			"insert_final_newline = true",
-		}, editorconfig)
-		vim.fn.writefile({
+		},
+
+		clangd = {
 			"Diagnostics:",
 			"  UnusedIncludes: None",
-		}, clangd)
-		vim.fn.writefile({
+		},
+
+		gitignore = {
 			"bin/",
 			"gmon.out",
 			"profile.txt",
-		}, gitignore)
-	end,
-	["C noBuild Raylib application"] = function(dir)
-		AppName = "app_name"
-		local justfile = vim.fs.joinpath(dir, "Justfile")
-		local compile_flags = vim.fs.joinpath(dir, "compile_flags.txt")
-		local src = vim.fs.joinpath(dir, "src")
-		local resources = vim.fs.joinpath(dir, "resources")
-		local main = vim.fs.joinpath(src, "main.c")
-		local common = vim.fs.joinpath(src, "common.h")
-		local editorconfig = vim.fs.joinpath(dir, ".editorconfig")
-		local clangd = vim.fs.joinpath(dir, ".clangd")
-		local gitignore = vim.fs.joinpath(dir, ".gitingnore")
-		vim.ui.input({}, function(input) AppName = input end)
-		vim.fn.writefile({
+		},
+
+		justfile = {
 			"build:",
 			"    @mkdir -p bin",
 			"    @gcc $(xargs < compile_flags.txt) src/*.c -o bin/main",
@@ -111,11 +57,50 @@ local project_setups = {
 			"default:",
 			"    @just build",
 			"    @just run",
-		}, justfile)
-		vim.fn.writefile({ "-lraylib -Wall -Wextra" }, compile_flags)
-		vim.fn.mkdir(src, "p")
-		vim.fn.mkdir(resources, "p")
-		vim.fn.writefile({
+		}
+	}
+}
+local project_setups = {
+	["C noBuild application"] = function(dir)
+		local justfile = joinpath(dir, "Justfile")
+		local compile_flags = joinpath(dir, "compile_flags.txt")
+		local src = joinpath(dir, "src")
+		local main = joinpath(src, "main.c")
+		local editorconfig = joinpath(dir, ".editorconfig")
+		local clangd = joinpath(dir, ".clangd")
+		local gitignore = joinpath(dir, ".gitingnore")
+		writefile(common_files.c.justfile, justfile)
+		writefile({ "-Wall -Wextra" }, compile_flags)
+		mkdir(src, "p")
+		writefile({
+			"#include <stdio.h>",
+			"",
+			"int main(int argc, char **argv) {",
+			"    printf(\"Hello, World!\\n\");",
+			"    return 0;",
+			"}",
+		}, main)
+		writefile(common_files.c.editorconfig, editorconfig)
+		writefile(common_files.c.clangd, clangd)
+		writefile(common_files.c.gitignore, gitignore)
+	end,
+	["C noBuild Raylib application"] = function(dir)
+		AppName = "app_name"
+		local justfile = joinpath(dir, "Justfile")
+		local compile_flags = joinpath(dir, "compile_flags.txt")
+		local src = joinpath(dir, "src")
+		local resources = joinpath(dir, "resources")
+		local main = joinpath(src, "main.c")
+		local common = joinpath(src, "common.h")
+		local editorconfig = joinpath(dir, ".editorconfig")
+		local clangd = joinpath(dir, ".clangd")
+		local gitignore = joinpath(dir, ".gitingnore")
+		vim.ui.input({}, function(input) AppName = input end)
+		writefile(common_files.c.justfile, justfile)
+		writefile({ "-lraylib -Wall -Wextra" }, compile_flags)
+		mkdir(src, "p")
+		mkdir(resources, "p")
+		writefile({
 			"#include \"common.h\"",
 			"",
 			"int main(int argc, char **argv)",
@@ -135,7 +120,7 @@ local project_setups = {
 			"	return 0;",
 			"}",
 		}, main)
-		vim.fn.writefile({
+		writefile({
 			"#pragma once",
 			"",
 			"#include \"stdio.h\"",
@@ -144,26 +129,9 @@ local project_setups = {
 			"#include \"stdint.h\"",
 			"#include \"math.h\"",
 		}, common)
-		vim.fn.writefile({
-			"# https://editorconfig.org",
-			"root = true",
-			"",
-			"[*]",
-			"indent_style = space",
-			"end_of_line = lf",
-			"charset = utf-8",
-			"trim_trailing_whitespace = true",
-			"insert_final_newline = true",
-		}, editorconfig)
-		vim.fn.writefile({
-			"Diagnostics:",
-			"  UnusedIncludes: None",
-		}, clangd)
-		vim.fn.writefile({
-			"bin/",
-			"gmon.out",
-			"profile.txt",
-		}, gitignore)
+		writefile(common_files.c.editorconfig, editorconfig)
+		writefile(common_files.c.clangd, clangd)
+		writefile(common_files.c.gitignore, gitignore)
 	end,
 }
 
