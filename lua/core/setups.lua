@@ -38,18 +38,19 @@ local common_files = {
 			"binary := \"bin/\" + project_name",
 			"c_env := \"-DAPP_NAME=\\\\\\\"\" + project_name + \"\\\\\\\" \" + \\",
 			"         \"-DAPP_VERSION=\\\\\\\"\" + project_version + \"\\\\\\\"\"",
+			"files := \"$(find src -name \\\"*.c\\\")\"",
 			"",
 			"_create-bin:",
 			"    mkdir -p bin",
 			"",
 			"build: _create-bin",
-			"    gcc {{ c_env }} $(xargs < compile_flags.txt) src/*.c -o {{ binary }}",
+			"    gcc {{ c_env }} $(xargs < compile_flags.txt) {{ files }} -o {{ binary }}",
 			"",
 			"build-asan: _create-bin",
-			"    gcc $(xargs < compile_flags.txt) {{ c_env }} -fsanitize=address -g src/*.c -o {{ binary }}",
+			"    gcc $(xargs < compile_flags.txt) {{ c_env }} -fsanitize=address -g {{ files }} -o {{ binary }}",
 			"",
 			"build-profiler: _create-bin",
-			"    gcc $(xargs < compile_flags.txt) {{ c_env }} -pg -O0 -g src/*.c -o {{ binary }}",
+			"    gcc $(xargs < compile_flags.txt) {{ c_env }} -pg -O0 -g {{ files }} -o {{ binary }}",
 			"",
 			"run:",
 			"    {{ binary }}",
@@ -85,7 +86,7 @@ local project_setups = {
 		vim.ui.input({ prompt = "Application Name: " }, function(input) AppName = input end)
 		vim.ui.input({ prompt = "Application Version: " }, function(input) AppVer = input end)
 		writefile(common_files.c.justfile, justfile)
-		writefile({ "-Wall -Wextra" }, compile_flags)
+		writefile({ "-Wall -Wextra -Isrc" }, compile_flags)
 		mkdir(src, "p")
 		writefile({
 			"#include <stdio.h>",
@@ -121,7 +122,7 @@ local project_setups = {
 		vim.ui.input({ prompt = "Application Name: " }, function(input) AppName = input end)
 		vim.ui.input({ prompt = "Application Version: " }, function(input) AppVer = input end)
 		writefile(common_files.c.justfile, justfile)
-		writefile({ "-lraylib -Wall -Wextra" }, compile_flags)
+		writefile({ "-lraylib -Wall -Wextra -Isrc" }, compile_flags)
 		mkdir(src, "p")
 		mkdir(resources, "p")
 		writefile({
