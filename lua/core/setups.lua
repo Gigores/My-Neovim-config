@@ -25,6 +25,7 @@ local common_files = {
 			"bin/",
 			"gmon.out",
 			"profile.txt",
+			".idea/",
 		},
 
 		justfile = {
