@@ -107,7 +107,7 @@ local fields = {
 	["@string"]    = { fg = COLORS.string },
 	["@number"]    = { fg = COLORS.number },
 	["@boolean"]   = { fg = COLORS.boolean },
-	["@constant"]  = { fg = COLORS.constant },
+	["@constant"]  = { fg = COLORS.constant, italic = true },
 	["@type"]      = { fg = COLORS.fg },
 	["@operator"]  = { fg = COLORS.operator },
 	["@variable"]  = { fg = COLORS.variable },
@@ -151,6 +151,9 @@ local fields = {
 	["@lsp.typemod.enum.declaration.c"] = { fg = COLORS.c_thing },
 	["@lsp.typemod.union.declaration.c"] = { fg = COLORS.c_thing },
 	["@lsp.typemod.struct.declaration.c"] = { fg = COLORS.c_thing },
+	["cCharacter"] = { fg = COLORS.string },
+	["cFormat"] = { fg = COLORS.string },
+	["cSpecialCharacter"] = { fg = COLORS.keyword },
 
 	-- C++
 	["@lsp.typemod.function.declaration.cpp"] = { fg = COLORS.func_dec },

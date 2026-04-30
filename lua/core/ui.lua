@@ -10,5 +10,6 @@ vim.diagnostic.config {
 			[vim.diagnostic.severity.INFO] = " ",
 		}
 	},
-	virtual_lines = true,
+	virtual_text = true,
+	update_in_insert = true,
 }
