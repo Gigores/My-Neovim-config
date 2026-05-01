@@ -150,6 +150,7 @@ local fields = {
 	["@lsp.type.macro.c"] = { fg = COLORS.macro_name },
 	["@lsp.typemod.enum.declaration.c"] = { fg = COLORS.c_thing },
 	["@lsp.typemod.union.declaration.c"] = { fg = COLORS.c_thing },
+	["@lsp.typemod.class.declaration.c"] = { fg = COLORS.c_thing },
 	["@lsp.typemod.struct.declaration.c"] = { fg = COLORS.c_thing },
 	["cCharacter"] = { fg = COLORS.string },
 	["cFormat"] = { fg = COLORS.string },
