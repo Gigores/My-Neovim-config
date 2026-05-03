@@ -13,3 +13,10 @@ vim.diagnostic.config {
 	virtual_text = true,
 	update_in_insert = true,
 }
+
+vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
+	pattern = "*.log",
+	callback = function()
+		vim.bo.filetype = "log"
+	end,
+})
