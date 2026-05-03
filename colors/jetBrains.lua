@@ -67,6 +67,8 @@ local fields = {
 	["Folded"]       = { fg = COLORS.comment, bg = COLORS.fold },
 	["FoldColumn"]   = { fg = COLORS.linenr, bg = COLORS.bg },
 
+	["FloatBorder"] = { fg = COLORS.menu_sel, bg = COLORS.menu_bg },
+
 	-- syntax
 	["Comment"]    = { fg = COLORS.comment, italic = true },
 	["Keyword"]    = { fg = COLORS.keyword },
@@ -119,6 +121,11 @@ local fields = {
 	["OilFile"] = { fg = COLORS.fg },
 	["OilDirHidden"] = { fg = COLORS.comment },
 	["OilFileHidden"] = { fg = COLORS.comment },
+
+	["OilGitUntracked"] = { fg = COLORS.diag_error },
+	["OilGitIgnored"] = { fg = COLORS.keyword },
+	["OilGitStaged"] = { fg = COLORS.string },
+	["OilGitModified"] = { fg = COLORS.func_dec },
 
 	-- Markdown
 	["ColorColumn"] = { bg = COLORS.menu_bg },

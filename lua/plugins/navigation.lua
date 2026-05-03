@@ -2,7 +2,7 @@ local gh = require "util.providers".github
 
 vim.pack.add {
 	gh "nvim-lua/plenary.nvim",
-	{ src = gh "ThePrimeagen/harpoon", version = "harpoon2" },
+	{ src = gh "ThePrimeagen/harpoon",          version = "harpoon2" },
 
 	{ src = gh "nvim-telescope/telescope.nvim", name = "make" },
 	gh "stevearc/oil.nvim",
@@ -14,7 +14,8 @@ local harpoon = require("harpoon")
 harpoon:setup()
 
 vim.keymap.set("n", "<leader>ha", function() harpoon:list():add() end, { desc = "Add" })
-vim.keymap.set("n", "<leader><C-h>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Harpoon open" })
+vim.keymap.set("n", "<leader><C-h>", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
+	{ desc = "Harpoon open" })
 
 vim.keymap.set("n", "<leader>h1", function() harpoon:list():select(1) end, { desc = "Open 1st" })
 vim.keymap.set("n", "<leader>h2", function() harpoon:list():select(2) end, { desc = "Open 2nd" })
@@ -52,6 +53,7 @@ oil.setup {
 	float = {
 		padding = 10,
 		border = "solid",
+		preview_split = "right",
 	},
 	keymaps_help = {
 		border = "solid",
@@ -62,16 +64,55 @@ oil.setup {
 		["H"] = { "actions.parent", mode = 'n' },
 		["L"] = "actions.select",
 	},
+	confirmation = {
+		border = {
+			"▔", "▔", "▔", " ",
+			"▁", "▁", "▁", " ",
+		}
+	},
+	progress = {
+		border = {
+			"▔", "▔", "▔", " ",
+			"▁", "▁", "▁", " ",
+		}
+	},
+	ssh = {
+		border = {
+			"▔", "▔", "▔", " ",
+			"▁", "▁", "▁", " ",
+		}
+	},
 	git = {
-		add = function(path)
+		add = function()
 			return true
 		end,
-		mv = function(src_path, dest_path)
+		mv = function()
 			return true
 		end,
-		rm = function(path)
+		rm = function()
 			return true
 		end,
 	},
+	columns = {
+		"icon",
+		"size",
+	},
+	view_options = {
+		is_hidden_file = function(name, bufnr)
+			local show_these = {
+				".gitignore"
+			}
+			local m = name:match("^%.")
+			if m ~= nil then
+				for _, i in pairs(show_these) do
+					if i == name then
+						return false
+					end
+				end
+				return true
+			end
+			return false
+		end,
+	}
 }
 vim.keymap.set('n', "<leader>e", "<CMD>Oil --float<CR><C-p>", { desc = "Open file explorer", remap = true })
