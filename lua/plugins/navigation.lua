@@ -95,10 +95,12 @@ oil.setup {
 	},
 	columns = {
 		"icon",
+		"permissions",
 		"size",
+		"mtime",
 	},
 	view_options = {
-		is_hidden_file = function(name, bufnr)
+		is_hidden_file = function(name)
 			local show_these = {
 				".gitignore"
 			}
