@@ -94,10 +94,10 @@ oil.setup {
 		end,
 	},
 	columns = {
-		"icon",
 		"permissions",
 		"size",
 		"mtime",
+		"icon",
 	},
 	view_options = {
 		is_hidden_file = function(name)

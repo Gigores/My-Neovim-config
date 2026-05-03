@@ -8,6 +8,23 @@ vim.pack.add {
 	gh "j-hui/fidget.nvim",
 	gh "norcalli/nvim-colorizer.lua",
 }
+---@type Icon
+local default_icon = {
+  icon = "",
+  color = "#6d8086",
+  cterm_color = "66",
+  name = "Default",
+}
+require'nvim-web-devicons'.setup {
+	 override_by_extension = {
+		 ["json"] = {
+			 icon = '',
+			 color = "#C77DBB",
+			 name = "Json"
+		 }
+	 },
+}
+
 local wk = require "which-key"
 wk.setup {
 	preset = "helix",
