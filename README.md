@@ -40,6 +40,6 @@ yay -S jdtls lua-language-server llvm rust-analyzer pyright typescript-language-
 ```
 As well as some cli utilities:
 ```bash
-yay -S lazygit bear
+yay -S lazygit bear xxd
 ```
 And make sure you are using Neovim 0.12 or greater.
