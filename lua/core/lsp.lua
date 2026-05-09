@@ -53,7 +53,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		key.set('n', "gi", vim.lsp.buf.implementation, opts)
 
 		opts.desc = "signature help"
-		key.set('n', "<leader>ck", vim.lsp.buf.signature_help, opts)
+		key.set('n', "<leader>cK", vim.lsp.buf.signature_help, opts)
 
 		opts.desc = "rename"
 		key.set('n', "<leader>cr", vim.lsp.buf.rename, opts)

@@ -11,6 +11,7 @@ map('v', "<", "<gv", opts)
 map('v', ">", ">gv", opts)
 
 map({ 'n', 'v' }, "<leader>d", [["_d]], { desc = "Delete without copying" })
+map('n', "<leader>u", ":Undotree<CR>", { desc = "Undo tree" })
 map('n', "x", "_x", opts)
 
 map('n', "L", "<cmd>tabn<CR>")
@@ -27,12 +28,10 @@ map('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-map('n', "<leader>r", ":restart<CR>", { desc = "Source the current file" })
+map('n', "<leader>r", ":restart<CR>", { desc = ":restart" })
 map('n', "<leader>W", ":w<CR>", { desc = " :w" })
 map('n', "<leader>q", ":q<CR>", { desc = " :q" })
 map('n', "<leader>Q", ":qa<CR>", { desc = " :qa" })
-
-map('n', "<leader>u", ":Undotree<CR>", { desc = "Undo tree" })
 
 map('t', '<Esc><Esc>', [[<C-\><C-n>]], { desc = "Exit terminal mode" })
 
