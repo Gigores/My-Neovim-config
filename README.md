@@ -44,11 +44,9 @@ yay -S unzip lazygit bear xxd
 ```
 And make sure you are using Neovim 0.12 or greater.
 
-## Usage
+## Keybinds
 
-### Keybinds
-
-#### Core
+### Core
 
 - `<space>d`: Delete without copying
 
@@ -58,7 +56,7 @@ And make sure you are using Neovim 0.12 or greater.
 
 - `<space>S`: Project setup wizard
 
-##### LSP
+#### LSP
 
 - `<space>ck`: Hover
 - `<space>cK`: Signature help
@@ -74,7 +72,7 @@ And make sure you are using Neovim 0.12 or greater.
 - `gD`: Go to declaration
 - `gi`: Go to implementation
 
-##### Window manipulation
+#### Window manipulation
 
 - `<space>w|`: Split window vertucally
 - `<space>w-`: Split window horizontally
@@ -85,44 +83,44 @@ And make sure you are using Neovim 0.12 or greater.
 - `<C-k>`: Move focus to the upper window
 - `<C-l>`: Move focus to the right window
 
-##### Just integration
+#### Just integration
 
 - `<space>jc`: Choose and run
 - `<space>jd`: Run "default" recipe
 
-#### Plugins
+### Plugins
 
-##### Markdown
+#### Markdown
 
 - `<space>cm`: Toggle Markdown preview
 
-##### Harpoon
+#### Harpoon
 
-- `<leader><C-h>`: Open menu
-- `<leader>ha`: Add
+- `<space><C-h>`: Open menu
+- `<space>ha`: Add
 
-- `<leader>h1`: Open 1st
-- `<leader>h2`: Open 2nd
-- `<leader>h3`: Open 3rd
-- `<leader>h4`: Open 4th
+- `<space>h1`: Open 1st
+- `<space>h2`: Open 2nd
+- `<space>h3`: Open 3rd
+- `<space>h4`: Open 4th
 
-- `<leader>hk`: Open previous
-- `<leader>hj`: Open next
+- `<space>hk`: Open previous
+- `<space>hj`: Open next
 
-##### Telescope
+#### Telescope
 
 - `<space><space>`: Search files
 - `<space><space>` (Visual): Search selection
 - `<space>/`: Search in files
 
-##### oil.nvim
+#### oil.nvim
 
 - `<space>e`: Open file explorer
 
 - `H` (In file explorer): Open parent directory
 - `L` (In file explorer): Open selected file/directory
 
-##### mini.surround
+#### mini.surround
 
 These are the default mappings
 - `sa`: Add surrounding
@@ -131,11 +129,11 @@ These are the default mappings
 - `sf`: Find surrounding
 - `sh`: Hightlight surrounding
 
-##### nvim-toggler
+#### nvim-toggler
 
 - `<space>ct`: toggle
 
-##### Treesitter-textobjects
+#### Treesitter-textobjects
 
 - `af` (Visual & Operator-pending): Select around function
 - `if` (Visual & Operator-pending): Select inside function
