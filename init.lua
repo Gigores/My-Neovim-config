@@ -11,7 +11,7 @@ require "plugins.toggler"
 require "plugins.navigation"
 require "plugins.ui"
 require "plugins.md"
-require "plugins.colorscheme"
+-- require "plugins.colorscheme"
 require "plugins.surround"
 
 vim.filetype.add {
@@ -21,4 +21,5 @@ vim.filetype.add {
     pattern = { ["*.gr"] = "gearshift" }
 }
 
-vim.cmd "colorscheme jetBrains"
+vim.cmd.colorscheme "jetBrains"
+print "heeell yeha"

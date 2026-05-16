@@ -9,10 +9,7 @@
   - *Task runner integration*: Just
   - *Project setup wizards* for C
 - Additional colorschemes
-  - Custom
-    - jetBrains
-  - Other
-    - everforest
+  - jetBrains
 
 <img src="https://github.com/Gigores/My-Neovim-config/blob/main/screenshots/screenshot1.png" width="60%" alt="Screenshot">
 
