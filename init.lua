@@ -22,4 +22,3 @@ vim.filetype.add {
 }
 
 vim.cmd.colorscheme "jetBrains"
-print "heeell yeha"

@@ -39,5 +39,6 @@ local Floatings = require "util.floatings"
 
 map('n', "<leader>jc", Floatings.create_terminal_app({"just", "--choose"}, { border = "solid" }), { desc = "Choose & Run" })
 map('n', "<leader>jd", Floatings.create_terminal_app({"just", "default"}, { border = "solid" }), { desc = "Run Default" })
+map('n', "<leader>o", Floatings.create_terminal_app({"opencode", "."}, { split = Floatings.SplitDirection.RIGHT }), { desc = "OpenCode" })
 map('n', "<leader>g", Floatings.create_terminal_app({"lazygit"}, { border = "solid", close_on_exit = true }), { desc = "Git" })
 map('n', "<leader>t", Floatings.create_terminal { border = "solid" }, { desc = "Open Terminal" })

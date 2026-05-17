@@ -3,15 +3,16 @@
 - Native plugin manager
 - Native lsp
 - Good workflow
-  - *Git*: Lazygit
+  - *Git*: [Lazygit](https://github.com/jesseduffield/lazygit)
+  - *AI*: [OpenCode](https://github.com/anomalyco/opencode/)
   - *Autocompletion*: blink.cmp + luasnip
   - *File navigation*: oil.nvim + harpoon + telescope
-  - *Task runner integration*: Just
+  - *Task runner integration*: [Just](https://github.com/casey/just)
   - *Project setup wizards* for C
 - Additional colorschemes
   - jetBrains
 
-<img src="https://github.com/Gigores/My-Neovim-config/blob/main/screenshots/screenshot1.png" width="60%" alt="Screenshot">
+<img src="https://github.com/Gigores/My-Neovim-config/blob/main/screenshots/screenshot1.png" width="70%" alt="Screenshot">
 
 ## Supported languages
 
@@ -37,7 +38,7 @@ yay -S jdtls lua-language-server llvm rust-analyzer pyright typescript-language-
 ```
 As well as some cli utilities:
 ```bash
-yay -S unzip lazygit bear xxd
+yay -S unzip lazygit bear xxd opencode
 ```
 And make sure you are using Neovim 0.12 or greater.
 
@@ -49,6 +50,7 @@ And make sure you are using Neovim 0.12 or greater.
 
 - `<space>u`: Open undo tree
 - `<space>g`: Open Lazygit
+- `<space>o`: Open OpenCode
 - `<space>t`: Open terminal
 
 - `<space>S`: Project setup wizard

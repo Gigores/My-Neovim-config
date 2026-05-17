@@ -1,6 +1,13 @@
 local M = {}
 
-function M.create_window(opts)
+M.SplitDirection = {
+	LEFT = "left",
+	RIGHT = "right",
+	ABOVE = "above",
+	BELOW = "below",
+}
+
+function M.create_floating_window(opts)
 	return function()
 		local max_width  = vim.api.nvim_win_get_width(0)
 		local max_height = vim.api.nvim_win_get_height(0)
@@ -21,9 +28,24 @@ function M.create_window(opts)
 	end
 end
 
+function M.create_split_window(opts)
+	return function()
+		local max_width = vim.api.nvim_win_get_width(0)
+		local width = math.floor(max_width * 0.3333)
+
+		local buf = vim.api.nvim_create_buf(false, true)
+		local win = vim.api.nvim_open_win(buf, true, {
+			width = width,
+			split = opts.split or M.SplitDirection.RIGHT,
+			border = opts.border,
+		})
+		return win, buf
+	end
+end
+
 function M.create_terminal(opts)
 	return function()
-		M.create_window(opts)()
+		M.create_floating_window(opts)()
 		vim.cmd.term()
 		vim.cmd.startinsert()
 	end
@@ -31,7 +53,12 @@ end
 
 function M.create_terminal_app(cmd, opts)
 	return function()
-		local window, _ = M.create_window(opts)()
+		local window, _
+		if opts.split == nil then
+			window, _ = M.create_floating_window(opts)()
+		else
+			window, _ = M.create_split_window(opts)()
+		end
 		vim.fn.termopen(cmd, {
 			on_exit = opts.on_exit or function()
 				if opts and opts.close_on_exit then
