@@ -7,7 +7,6 @@ vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
 
 vim.opt.splitright = true
-vim.opt.splitbelow = true
 
 vim.opt.number         = true
 vim.opt.relativenumber = true
@@ -55,3 +54,9 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 	callback = function() vim.hl.on_yank() end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "help",
+	callback = function()
+		vim.cmd.wincmd("L")
+	end,
+})
