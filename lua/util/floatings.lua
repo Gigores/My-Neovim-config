@@ -31,7 +31,7 @@ M.Factors = {
 ---@field height_factor number?
 
 ---@param opts FloatingWindowOpts
----@return fun(): integer, integer  # window and buffer
+---@return fun(): integer, integer  # a function that launches the app and returns window and buffer
 function M.create_floating_window(opts)
 	return function()
 		local max_width  = vim.api.nvim_win_get_width(0)
@@ -58,7 +58,7 @@ end
 ---@field width_factor number?
 
 ---@param opts SplitWindowOpts
----@return fun(): integer, integer  # window and buffer
+---@return fun(): integer, integer  # a function that launches the app and returns window and buffer
 function M.create_split_window(opts)
 	return function()
 		local max_width = vim.api.nvim_win_get_width(0)
@@ -75,7 +75,7 @@ function M.create_split_window(opts)
 end
 
 ---@param opts FloatingWindowOpts
----@return fun()
+---@return fun()  # a function that launches the app
 function M.create_terminal(opts)
 	return function()
 		M.create_floating_window(opts)()
@@ -88,9 +88,9 @@ end
 ---@field on_exit fun()?
 ---@field close_on_exit boolean?
 
----@param cmd string[]
+---@param cmd string[]  # example: `{"ls", "-la", "~/.config"}`
 ---@param opts TermAppOpts
----@return fun()
+---@return fun()  # a function that launches the app
 function M.create_terminal_app(cmd, opts)
 	return function()
 		local window
