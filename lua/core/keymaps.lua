@@ -52,6 +52,6 @@ map('n', "<leader>jf", function()
 		vim.cmd.edit "Justfile"
 	end
 end, { desc = "Open Justfile" })
-map('n', "<leader>o", Floatings.create_terminal_app({"opencode", "."}, { split = Floatings.SplitDirection.RIGHT }), { desc = "OpenCode" })
+map('n', "<leader>o", Floatings.create_terminal_app({"opencode", "."}, { split = Floatings.SplitDirection.RIGHT, close_on_exit = true }), { desc = "OpenCode" })
 map('n', "<leader>g", Floatings.create_terminal_app({"lazygit"}, { border = "solid", close_on_exit = true }), { desc = "Git" })
 map('n', "<leader>t", Floatings.create_terminal { border = "solid" }, { desc = "Open Terminal" })
