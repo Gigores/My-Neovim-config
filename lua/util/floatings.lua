@@ -23,7 +23,7 @@ M.Factors = {
 }
 
 ---@class WindowOpts
----@field border (string | string[])?
+---@field border string|string[]?
 ---@field buf integer?
 
 ---@class FloatingWindowOpts : WindowOpts
@@ -93,13 +93,14 @@ end
 ---@return fun()
 function M.create_terminal_app(cmd, opts)
 	return function()
-		local window, _
+		local window
 		if opts.split == nil then
-			window, _ = M.create_floating_window(opts)()
+			window = M.create_floating_window(opts)()
 		else
-			window, _ = M.create_split_window(opts)()
+			window = M.create_split_window(opts)()
 		end
-		vim.fn.termopen(cmd, {
+		vim.fn.jobstart(cmd, {
+			term = vim.v['true'],
 			on_exit = opts.on_exit or function()
 				if opts and opts.close_on_exit then
 					vim.api.nvim_win_close(window, false)
