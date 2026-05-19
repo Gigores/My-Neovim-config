@@ -39,6 +39,19 @@ local Floatings = require "util.floatings"
 
 map('n', "<leader>jc", Floatings.create_terminal_app({"just", "--choose"}, { border = "solid" }), { desc = "Choose & Run" })
 map('n', "<leader>jd", Floatings.create_terminal_app({"just", "default"}, { border = "solid" }), { desc = "Run Default" })
+map('n', "<leader>jf", function()
+	local justfile = vim.fs.find(
+		{ "justfile", "Justfile" },
+		{ type = "file" }
+	)
+	vim.print(#justfile)
+	Floatings.create_split_window({ width_factor = Floatings.Factors.HALF })()
+	if (#justfile ~= 0) then
+		vim.cmd.edit(justfile[1])
+	else
+		vim.cmd.edit "Justfile"
+	end
+end, { desc = "Open Justfile" })
 map('n', "<leader>o", Floatings.create_terminal_app({"opencode", "."}, { split = Floatings.SplitDirection.RIGHT }), { desc = "OpenCode" })
 map('n', "<leader>g", Floatings.create_terminal_app({"lazygit"}, { border = "solid", close_on_exit = true }), { desc = "Git" })
 map('n', "<leader>t", Floatings.create_terminal { border = "solid" }, { desc = "Open Terminal" })

@@ -86,6 +86,7 @@ And make sure you are using Neovim 0.12 or greater.
 
 - `<space>jc`: Choose and run
 - `<space>jd`: Run "default" recipe
+- `<space>jf`: Open Justfile
 
 ### Plugins
 
