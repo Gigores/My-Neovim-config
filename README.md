@@ -34,7 +34,7 @@
 You need to install some **Language Severs**:
 ```bash
 # On Arch linux with yay
-yay -S jdtls lua-language-server llvm rust-analyzer pyright typescript-language-server
+yay -S jdtls lua-language-server clangd rust-analyzer pyright typescript-language-server
 ```
 As well as some cli utilities:
 ```bash
