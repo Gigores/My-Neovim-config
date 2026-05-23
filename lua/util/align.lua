@@ -1,11 +1,3 @@
-local function rtrim(s)
-	return s:gsub("%s+$", "")
-end
-
-local function ltrim(s)
-	return s:gsub("^%s+", "")
-end
-
 return function(delim, start_line, end_line)
 	local lines = vim.api.nvim_buf_get_lines(0, start_line - 1, end_line, false)
 
