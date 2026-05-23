@@ -33,7 +33,7 @@ wk.setup {
 		{ "<leader>c", group = "Code" },
 		{ "<leader>h", group = "Harpoon" },
 		{ "<leader>j", group = "Just", icon = " " },
-		{ "<leader>jc", icon = "󰍜 " }
+		{ "<leader>jc", icon = "󰍜 " },
 	},
 	win = {
 		border = "solid",

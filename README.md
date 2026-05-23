@@ -34,11 +34,11 @@
 You need to install some **Language Severs**:
 ```bash
 # On Arch linux with yay
-yay -S jdtls lua-language-server clangd rust-analyzer pyright typescript-language-server
+yay -S jdtls lua-language-server clang llvm rust-analyzer pyright typescript-language-server
 ```
 As well as some cli utilities:
 ```bash
-yay -S unzip lazygit bear xxd opencode
+yay -S unzip lazygit bear xxd opencode fzf
 ```
 And make sure you are using Neovim 0.12 or greater.
 

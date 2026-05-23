@@ -26,23 +26,34 @@ M.Factors = {
 ---@field border string|string[]?
 ---@field buf integer?
 
+---@alias RelativeTo
+---| "win"
+---| "editor"
+
 ---@class FloatingWindowOpts : WindowOpts
 ---@field width_factor number?
 ---@field height_factor number?
+---@field relative_to RelativeTo?
 
 ---@param opts FloatingWindowOpts
 ---@return fun(): integer, integer  # a function that launches the app and returns window and buffer
 function M.create_floating_window(opts)
 	return function()
-		local max_width  = vim.api.nvim_win_get_width(0)
-		local max_height = vim.api.nvim_win_get_height(0)
+		local max_width, max_height
+		if opts.relative_to == "editor" or opts.relative_to == nil then
+			max_width  = vim.o.columns
+			max_height = vim.o.lines
+		else
+			max_width  = vim.api.nvim_win_get_width(0)
+			max_height = vim.api.nvim_win_get_height(0)
+		end
 
 		local width = math.floor(max_width * (opts.width_factor or M.Factors.THREE_QUATERS))
 		local height = math.floor(max_height * (opts.height_factor or M.Factors.THREE_QUATERS))
 
 		local buf = opts.buf or vim.api.nvim_create_buf(false, true)
 		local win = vim.api.nvim_open_win(buf, true, {
-			relative = "editor",
+			relative = opts.relative_to or "editor",
 			width = width,
 			height = height,
 			col = (max_width - width) / 2,

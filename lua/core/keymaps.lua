@@ -37,7 +37,7 @@ map('t', '<Esc><Esc>', [[<C-\><C-n>]], { desc = "Exit terminal mode" })
 
 local Floatings = require "util.floatings"
 
-map('n', "<leader>jc", Floatings.create_terminal_app({"just", "--choose"}, { border = "solid" }), { desc = "Choose & Run" })
+map('n', "<leader>jc", Floatings.create_terminal_app({"just", "--choose"}, { border = "solid", }), { desc = "Choose & Run" })
 map('n', "<leader>jd", Floatings.create_terminal_app({"just", "default"}, { border = "solid" }), { desc = "Run Default" })
 map('n', "<leader>jf", function()
 	local justfile = vim.fs.find(
