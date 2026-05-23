@@ -48,6 +48,8 @@ And make sure you are using Neovim 0.12 or greater.
 
 - `<space>d`: Delete without copying
 
+- `<space>a` (Visual): Align by a character
+
 - `<space>u`: Open undo tree
 - `<space>g`: Open Lazygit
 - `<space>o`: Open OpenCode
