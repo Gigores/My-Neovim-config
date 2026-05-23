@@ -16,11 +16,9 @@ return function(delim, start_line, end_line)
 		local col = line:find(delim, 1, true)
 
 		if col then
-			local before = rtrim(line:sub(1, col - 1))
-			local after = ltrim(line:sub(col + #delim))
-
+			local before = line:sub(1, col - 1)
+			local after = line:sub(col + #delim)
 			max_col = math.max(max_col, #before)
-
 			parsed[i] = {
 				before = before,
 				after = after,
@@ -28,17 +26,10 @@ return function(delim, start_line, end_line)
 		end
 	end
 
-	vim.print(parsed)
 	for i, item in ipairs(parsed) do
 		if item then
 			local padding = string.rep(" ", max_col - #item.before)
-
-			lines[i] = item.before
-				.. padding
-				.. " "
-				.. delim
-				.. " "
-				.. item.after
+			lines[i] = item.before..padding..delim..item.after
 		end
 	end
 
