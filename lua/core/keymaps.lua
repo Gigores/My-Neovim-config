@@ -29,11 +29,26 @@ map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 map('n', "<leader>r", ":restart<CR>", { desc = ":restart" })
-map('n', "<leader>W", ":w<CR>", { desc = " :w" })
-map('n', "<leader>q", ":q<CR>", { desc = " :q" })
-map('n', "<leader>Q", ":qa<CR>", { desc = " :qa" })
+map('n', "<leader>W", ":w<CR>", { desc = ":w" })
+map('n', "<leader>q", ":q<CR>", { desc = ":q" })
+map('n', "<leader>Q", ":qa<CR>", { desc = ":qa" })
+map('n', "<leader>x", ":x<CR>", { desc = ":x" })
 
 map('t', '<Esc><Esc>', [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+
+local align_by = require "util.align"
+
+vim.keymap.set("x", "<leader>a", function()
+	local vpos = vim.fn.getpos("v")[2]
+	local cpos = vim.fn.getcurpos()[2]
+
+	local start_line = math.min(vpos, cpos)
+	local end_line = math.max(vpos, cpos)
+
+	local delim = vim.fn.getcharstr()
+
+	align_by(delim, start_line, end_line)
+end, { desc = "Align by character" })
 
 local Floatings = require "util.floatings"
 
