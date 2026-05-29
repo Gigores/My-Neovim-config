@@ -162,6 +162,7 @@ local fields = {
 	["cCharacter"] = { fg = COLORS.string },
 	["cFormat"] = { fg = COLORS.string },
 	["cSpecialCharacter"] = { fg = COLORS.keyword },
+	["@lsp.type.type.c"] = { link = "cType" },
 
 	-- C++
 	["@lsp.typemod.function.declaration.cpp"] = { fg = COLORS.func_dec },
@@ -172,6 +173,7 @@ local fields = {
 	["@lsp.typemod.union.declaration.cpp"] = { fg = COLORS.c_thing },
 	["@lsp.typemod.class.declaration.cpp"] = { fg = COLORS.c_thing },
 	["@lsp.typemod.struct.declaration.cpp"] = { fg = COLORS.c_thing },
+	["@lsp.type.type.cpp"] = { link = "cType" },
 
 	-- JavaScript
 	["@lsp.type.namespace.javascript"] = { fg = COLORS.fg },
