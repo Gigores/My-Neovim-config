@@ -102,7 +102,7 @@ oil.setup {
 	view_options = {
 		is_hidden_file = function(name)
 			local show_these = {
-				".gitignore"
+				".gitignore", ".gitmodules"
 			}
 			local m = name:match("^%.")
 			if m ~= nil then
