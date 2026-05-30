@@ -28,7 +28,8 @@ treesitter.setup {
 		"tsx",
 		"javascript",
 		"html",
-		"latex"
+		"latex",
+		"c3",
 	},
 	incremental_selection = {
 		enable = true,
@@ -44,7 +45,18 @@ vim.api.nvim_create_autocmd('FileType', {
 	pattern = { '<filetype>' },
 	callback = function() vim.treesitter.start() end,
 })
-vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "c3",
+	callback = function(args)
+		vim.treesitter.start(args.buf)
+	end,
+})
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "*",
+	callback = function()
+		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+	end,
+})
 
 require("nvim-treesitter-textobjects").setup {
 	select = {
