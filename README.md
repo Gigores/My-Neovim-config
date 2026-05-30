@@ -20,8 +20,8 @@
   - *Lua*
   - *Java*
   - *C*
-- Works, but likely requires tweaking custom colorschemes
   - *C3*
+- Works, but likely requires tweaking custom colorschemes
   - *Rust*
   - *JavaScript*
   - *Python*

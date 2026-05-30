@@ -23,6 +23,9 @@ local COLORS = {
 	macro_name = "#908B25",
 	c_thing    = "#B5B6E3",
 
+	c3_type = "#78a99D",
+	c3_dim  = "#9b9ea5",
+
 	rust_struct   = "#86985D",
 	rust_lifetime = "#20999D",
 
@@ -149,6 +152,17 @@ local fields = {
 	["@lsp.typemod.method.declaration.java"] = { fg = COLORS.func_dec },
 	["@lsp.typemod.class.constructor.java"] = { fg = COLORS.func_dec },
 	["@lsp.type.namespace.java"] = { fg = COLORS.fg },
+
+	-- C3
+	["@function.c3"] = { fg = COLORS.func_dec },
+	["@variable.member.c3"] = { fg = COLORS.struct_field },
+	["@attribute.c3"] = { fg = COLORS.macro_name },
+	["@type.c3"] = { fg = COLORS.c3_type },
+	["@keyword.directive.c3"] = { link = "PreProc" },
+	["@module.c3"] = { fg = COLORS.c_thing },
+	["@variable.c3"] = { fg = nil },
+	["@type.builtin.c3"] = { fg = COLORS.keyword },
+	["@punctuation.delimiter.c3"] = { fg = COLORS.c3_dim },
 
 	-- C
 	["@lsp.typemod.function.declaration.c"] = { fg = COLORS.func_dec },
