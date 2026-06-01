@@ -1,7 +1,6 @@
 local gh = require "util.providers".github
 
 vim.pack.add {
-	gh "nvim-mini/mini.nvim",
 	gh "MeanderingProgrammer/render-markdown.nvim"
 }
 vim.treesitter.language.register('markdown', 'vimwiki')
@@ -37,7 +36,7 @@ markdown.setup {
 				highlight = 'DiagnosticError',
 			}
 		}
-	}
+	},
 }
 
 vim.keymap.set('n', "<leader>cm", function()
