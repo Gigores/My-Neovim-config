@@ -50,6 +50,10 @@ require "blink.cmp".setup {
 				},
 			}
 		}
+	},
+	keymap = {
+		['<M-k>'] = { "select_prev", "fallback" },
+		['<M-j>'] = { "select_next", "fallback" },
 	}
 }
 local autopairs = require "nvim-autopairs"
