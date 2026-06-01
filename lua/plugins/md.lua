@@ -7,12 +7,6 @@ vim.pack.add {
 vim.treesitter.language.register('markdown', 'vimwiki')
 local markdown = require "render-markdown"
 markdown.setup {
-	indent = {
-		enabled = true
-	},
-	heading = {
-		border = true
-	},
 	code = {
 		style = "normal",
 		border = "thick"

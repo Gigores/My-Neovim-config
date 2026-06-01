@@ -41,6 +41,7 @@ treesitter.setup {
 	},
 	additional_vim_regex_highlighting = false,
 }
+vim.treesitter.language.register('markdown', 'vimwiki')
 vim.api.nvim_create_autocmd('FileType', {
 	pattern = { '<filetype>' },
 	callback = function() vim.treesitter.start() end,
