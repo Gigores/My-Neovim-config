@@ -42,7 +42,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local key = vim.keymap
 
 		opts.desc = "hover info"
-		key.set('n', "<leader>ck", vim.lsp.buf.hover, opts)
+		key.set('n', "<leader>ck", function()
+			vim.lsp.buf.hover {
+				border = {'⎸',' ','⎹','⎹','⎹',' ','⎸','⎸'},
+			}
+		end, opts)
 
 		opts.desc = "go to definition"
 		key.set('n', "gd", vim.lsp.buf.definition, opts)
