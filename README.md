@@ -21,10 +21,10 @@
   - *Java*
   - *C*
   - *C3*
+  - *Python*
 - Works, but likely requires tweaking custom colorschemes
   - *Rust*
   - *JavaScript*
-  - *Python*
 - May work, not tested at all
   - *C++*
   - *Objective C*

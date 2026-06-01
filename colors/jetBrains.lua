@@ -29,6 +29,9 @@ local COLORS = {
 	rust_struct   = "#86985D",
 	rust_lifetime = "#20999D",
 
+	python = "#8888C6",
+	python_thing = "#AA4926",
+
 	cursor     = "#CED0D6",
 	visual     = "#214283",
 	search     = "#2D543F",
@@ -205,6 +208,16 @@ local fields = {
 	["@lsp.type.property.rust"] = { fg = COLORS.constant },
 	["@lsp.typemod.function.declaration.rust"] = { fg = COLORS.func_dec },
 	["@lsp.type.method.rust"] = { fg = COLORS.func_dec },
+
+	-- Python
+	["@module.python"] = { },
+	["@function.python"] = { fg = COLORS.func_dec },
+	["@function.builtin.python"] = { fg = COLORS.python },
+	["@type.builtin.python"] = { fg = COLORS.python },
+	["@string.escape.python"] = { fg = COLORS.keyword },
+	["@punctuation.special.python"] = { fg = COLORS.keyword },
+	["@variable.parameter.python"] = { fg = COLORS.python_thing },
+	["@constructor.python"] = { },
 }
 
 for k, v in pairs(fields) do
