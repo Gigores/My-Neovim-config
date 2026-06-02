@@ -17,7 +17,7 @@
 
 ## Supported languages
 
-While you can tecnically write code in any language, this configuration will not have language servers configured to all of them.
+While you can tecnically write code in any language, this configuration will not have language servers and coloschemes configured for all of them.
 
 These languages are **fully supported**. That means, that language servers are properly configured, treesitter queries are present and custom colorschemes are configured in a way that makes these languages feel nice to work with.
   - *Lua*
@@ -35,18 +35,27 @@ These **may work, not tested at all**. They are a byproduct of other language's 
   - *Objective C*
   - *TypeScript*
 
-## Before installation
+## Installation
 
-You need to install some **Language Severs**:
+Beforehand, you need to install some **Language Severs**:
 ```bash
 # On Arch linux with yay
 yay -S jdtls lua-language-server clang llvm rust-analyzer pyright typescript-language-server c3-lsp
 ```
 As well as some cli utilities:
 ```bash
+# On Arch linux with yay
 yay -S unzip lazygit bear xxd opencode fzf wikiman
 ```
 And make sure you are using Neovim 0.12 or greater.
+
+Then just clone the repo into neovim's configuration folder.
+```bash
+mkdir ~/.config/nvim
+cd ~/.config/nvim
+# Make sure that the folder is empty
+git clone https://github.com/Gigores/My-Neovim-config .
+```
 
 ## Keybinds
 
