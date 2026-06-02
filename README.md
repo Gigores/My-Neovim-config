@@ -17,7 +17,7 @@
 
 ## Supported languages
 
-While you tecnically write code in any language, this configuration will not have language servers configured to all of them.
+While you can tecnically write code in any language, this configuration will not have language servers configured to all of them.
 
 These languages are **fully supported**. That means, that language servers are properly configured, treesitter queries are present and custom colorschemes are configured in a way that makes these languages feel nice to work with.
   - *Lua*
@@ -25,9 +25,11 @@ These languages are **fully supported**. That means, that language servers are p
   - *C*
   - *C3*
   - *Python*
+
 These languages **work**, their language servers are configured and working, **but they likely require tweaking custom colorschemes** to look good.
   - *Rust*
   - *JavaScript*
+
 These **may work, not tested at all**. They are a byproduct of other language's servers supporing them as well as the language this configuration actually targets.
   - *C++*
   - *Objective C*
