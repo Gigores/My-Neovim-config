@@ -5,6 +5,7 @@
 - Good workflow
   - *Git*: [Lazygit](https://github.com/jesseduffield/lazygit)
   - *AI*: [OpenCode](https://github.com/anomalyco/opencode/)
+  - *Offline docs*: [wikiman](https://github.com/filiparag/wikiman)
   - *Autocompletion*: blink.cmp + luasnip
   - *File navigation*: oil.nvim + harpoon + telescope
   - *Task runner integration*: [Just](https://github.com/casey/just)
@@ -39,7 +40,7 @@ yay -S jdtls lua-language-server clang llvm rust-analyzer pyright typescript-lan
 ```
 As well as some cli utilities:
 ```bash
-yay -S unzip lazygit bear xxd opencode fzf
+yay -S unzip lazygit bear xxd opencode fzf wikiman
 ```
 And make sure you are using Neovim 0.12 or greater.
 
