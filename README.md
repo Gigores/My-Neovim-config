@@ -55,6 +55,7 @@ And make sure you are using Neovim 0.12 or greater.
 - `<space>u`: Open undo tree
 - `<space>g`: Open Lazygit
 - `<space>o`: Open OpenCode
+- `<space>s`: Open wikiman
 - `<space>t`: Open terminal
 
 - `<space>S`: Project setup wizard
