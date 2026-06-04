@@ -6,6 +6,7 @@ vim.pack.add {
 
 	{ src = gh "nvim-telescope/telescope.nvim", name = "make" },
 	gh "stevearc/oil.nvim",
+	gh "mluders/comfy-line-numbers.nvim",
 }
 
 -- HARPOON
@@ -118,3 +119,26 @@ oil.setup {
 	}
 }
 vim.keymap.set('n', "<leader>e", "<CMD>Oil --float<CR><C-p>", { desc = "Open file explorer", remap = true })
+
+local numbers = { '1', '2', '3', '4', '5' }
+local line_number_labels = {}
+
+-- abc
+for _, c in ipairs(numbers) do
+	table.insert(line_number_labels, c)
+end
+for _, b in ipairs(numbers) do
+	for _, c in ipairs(numbers) do
+		table.insert(line_number_labels, b..c)
+	end
+end
+for _, a in ipairs(numbers) do
+	for _, b in ipairs(numbers) do
+		for _, c in ipairs(numbers) do
+			table.insert(line_number_labels, a..b..c)
+		end
+	end
+end
+require "comfy-line-numbers".setup {
+	labels = line_number_labels
+}
