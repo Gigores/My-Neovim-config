@@ -26,7 +26,7 @@ These languages are **fully supported**. That means, that language servers are p
   - *C3*
   - *Python*
 
-These languages **work**, their language servers are configured and working, **but they likely require tweaking custom colorschemes** to look good.
+These languages **work**, their language servers are configured and working, **but they likely require tweaking custom colorschemes** to look good. 
   - *Rust*
   - *JavaScript*
 
