@@ -85,27 +85,20 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end, opts)
 	end
 })
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(args)
 		local client = vim.lsp.get_client_by_id(args.data.client_id)
 		if not client then return end
 		if client:supports_method("textDocument/inlayHint") then
-			vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+			vim.lsp.inlay_hint.enable(false, { bufnr = args.buf })
 		end
 	end,
 })
 
-vim.api.nvim_create_user_command("InlayHintsToggle", function()
+vim.keymap.set('n', "<leader>ch", function()
 	vim.lsp.inlay_hint.enable(
 		not vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }),
 		{ bufnr = 0 }
 	)
-end, {})
-
-vim.api.nvim_create_user_command("InlayHintsEnable", function()
-	vim.lsp.inlay_hint.enable(true, { bufnr = 0 })
-end, {})
-
-vim.api.nvim_create_user_command("InlayHintsDisable", function()
-	vim.lsp.inlay_hint.enable(false, { bufnr = 0 })
-end, {})
+end, { desc = "Toggle hints "})

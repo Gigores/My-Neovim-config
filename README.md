@@ -81,6 +81,7 @@ git clone https://github.com/Gigores/My-Neovim-config .
 - `<space>ca`: Code action
 - `<space>cR`: Find references
 - `<space>cf`: Format
+- `<space>ch`: Toggle inline hints
 
 - `<space>c]`: Next diagnostic
 - `<space>c[`: Previous diagnostic
