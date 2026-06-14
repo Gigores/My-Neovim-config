@@ -75,6 +75,8 @@ local fields = {
 
 	["FloatBorder"] = { fg = COLORS.menu_sel, bg = COLORS.menu_bg },
 
+	["ColorColumn"] = { bg = COLORS.menu_bg },
+
 	-- syntax
 	["Comment"]    = { fg = COLORS.comment, italic = true },
 	["Keyword"]    = { fg = COLORS.keyword },
@@ -134,7 +136,6 @@ local fields = {
 	["OilGitModified"] = { fg = COLORS.func_dec },
 
 	-- Markdown
-	["ColorColumn"] = { bg = COLORS.menu_bg },
 	["@markup.list.checked.markdown"] = { fg = COLORS.string },
 	["@markup.list.checked"] = { fg = COLORS.string },
 	["@markup.list.unchecked"] = { fg = COLORS.comment },
