@@ -29,7 +29,6 @@ treesitter.setup {
 		"javascript",
 		"html",
 		"latex",
-		"c3",
 	},
 	incremental_selection = {
 		enable = true,
@@ -45,12 +44,6 @@ vim.treesitter.language.register('markdown', 'vimwiki')
 vim.api.nvim_create_autocmd('FileType', {
 	pattern = { '<filetype>' },
 	callback = function() vim.treesitter.start() end,
-})
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "c3",
-	callback = function(args)
-		vim.treesitter.start(args.buf)
-	end,
 })
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "python",
