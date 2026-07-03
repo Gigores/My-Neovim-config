@@ -32,7 +32,6 @@ vim.lsp.enable {
 	"clangd",
 	"ts_ls",
 	"pyright",
-	"c3_lsp",
 }
 
 vim.api.nvim_create_autocmd("LspAttach", {

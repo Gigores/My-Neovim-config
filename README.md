@@ -23,7 +23,6 @@ These languages are **fully supported**. That means, that language servers are p
   - *Lua*
   - *Java*
   - *C*
-  - *C3*
   - *Python*
 
 These languages **work**, their language servers are configured and working, **but they likely require tweaking custom colorschemes** to look good. 
@@ -40,7 +39,7 @@ These **may work, not tested at all**. They are a byproduct of other language's 
 Beforehand, you need to install some **Language Severs**:
 ```bash
 # On Arch linux with yay
-yay -S jdtls lua-language-server clang llvm rust-analyzer pyright typescript-language-server c3-lsp
+yay -S jdtls lua-language-server clang llvm rust-analyzer pyright typescript-language-server
 ```
 As well as some cli utilities:
 ```bash
