@@ -21,4 +21,17 @@ vim.filetype.add {
     pattern = { ["*.gr"] = "gearshift" }
 }
 
+vim.filetype.add {
+	pattern = {
+		[".*"] = {
+			function(path, bufnr)
+				local line = vim.api.nvim_buf_get_lines(bufnr, 0, 1, false)[1]
+				if line and line:match("^#!.*/env%s+clisp") then
+					return "lisp"
+				end
+			end,
+		},
+	},
+}
+
 vim.cmd.colorscheme "jetBrains"
